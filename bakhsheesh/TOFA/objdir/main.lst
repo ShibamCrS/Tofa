@@ -1,0 +1,1523 @@
+   1               		.file	"main.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__RAMPZ__ = 0x3b
+   6               	__CCP__ = 0x34
+   7               	__tmp_reg__ = 0
+   8               	__zero_reg__ = 1
+   9               		.text
+  10               	.Ltext0:
+  11               		.cfi_sections	.debug_frame
+  12               	.global	reset
+  14               	reset:
+  15               	.LFB25:
+  16               		.file 1 "main.c"
+   1:main.c        **** #include <stdio.h>
+   2:main.c        **** #include <stdlib.h>
+   3:main.c        **** #include <string.h>
+   4:main.c        **** #include <stdint.h>
+   5:main.c        **** #include "baksheesh.h"
+   6:main.c        **** #include "hal.h"
+   7:main.c        **** #include "simpleserial.h"
+   8:main.c        **** 
+   9:main.c        **** 
+  10:main.c        **** uint8_t key[32] = {0x0,0x1,0x2,0x3,0x4,0x5,0x6,0x7,0x8,0x9,0xA,0xB,0xC,0xD,0xE,0xF,0x0,0x1,0x2,0x3,
+  11:main.c        **** 
+  12:main.c        **** uint8_t key_copy[32];
+  13:main.c        **** uint8_t msg_copy[32];
+  14:main.c        **** 
+  15:main.c        **** uint8_t get_key(uint8_t* k)
+  16:main.c        **** {
+  17:main.c        **** 	//ignore the input k and use pre-defined key
+  18:main.c        **** 
+  19:main.c        **** 	return 0x00;
+  20:main.c        **** }
+  21:main.c        **** 
+  22:main.c        **** uint8_t get_pt(uint8_t* pt)
+  23:main.c        **** {
+  24:main.c        ****     
+  25:main.c        ****     for(int j=0;j<32;j++)
+  26:main.c        ****         msg_copy[j]=pt[j];
+  27:main.c        ****     
+  28:main.c        ****     for(int j=0;j<32;j++)
+  29:main.c        ****         key_copy[j]=key[j];
+  30:main.c        ****         
+  31:main.c        ****     //trigger_high();
+  32:main.c        **** 
+  33:main.c        ****     enc(35, msg_copy, key_copy);
+  34:main.c        **** 
+  35:main.c        ****     //trigger_low();
+  36:main.c        ****     
+  37:main.c        ****     simpleserial_put('r', 32, msg_copy);
+  38:main.c        **** 
+  39:main.c        ****    return 0x00;
+  40:main.c        **** }
+  41:main.c        **** 
+  42:main.c        **** uint8_t reset(uint8_t* x)
+  43:main.c        **** {
+  17               		.loc 1 43 0
+  18               		.cfi_startproc
+  19               	.LVL0:
+  20               	/* prologue: function */
+  21               	/* frame size = 0 */
+  22               	/* stack size = 0 */
+  23               	.L__stack_usage = 0
+  44:main.c        ****     // Reset key here if needed
+  45:main.c        **** 	return 0x00;
+  46:main.c        **** }
+  24               		.loc 1 46 0
+  25 0000 80E0      		ldi r24,0
+  26               	.LVL1:
+  27 0002 0895      		ret
+  28               		.cfi_endproc
+  29               	.LFE25:
+  31               	.global	get_key
+  33               	get_key:
+  34               	.LFB28:
+  35               		.cfi_startproc
+  36               	/* prologue: function */
+  37               	/* frame size = 0 */
+  38               	/* stack size = 0 */
+  39               	.L__stack_usage = 0
+  40 0004 80E0      		ldi r24,0
+  41 0006 0895      		ret
+  42               		.cfi_endproc
+  43               	.LFE28:
+  45               		.section	.rodata.str1.1,"aMS",@progbits,1
+  46               	.LC0:
+  47 0000 2578 00   		.string	"%x"
+  48               		.text
+  49               	.global	Display_state_nibble
+  51               	Display_state_nibble:
+  52               	.LFB12:
+  53               		.file 2 "baksheesh.h"
+   1:baksheesh.h   **** #include "hal.h"
+   2:baksheesh.h   **** #include "simpleserial.h"
+   3:baksheesh.h   **** //Sbox
+   4:baksheesh.h   **** const uint8_t sbox[16] = {3, 0, 6, 13, 11, 5, 8, 14, 12, 15, 9, 2, 4, 10, 7, 1};
+   5:baksheesh.h   **** const uint8_t invsbox[16] = {1, 15, 11, 0, 12, 5, 2, 14, 6, 10, 13, 4, 8, 3, 7, 9};
+   6:baksheesh.h   **** 
+   7:baksheesh.h   **** const uint8_t RC[35] = {2, 33, 16, 9, 36, 19, 40, 53, 26, 13, 38, 51, 56, 61, 62, 31, 14, 7, 34, 49
+   8:baksheesh.h   **** // tap positions for round contants
+   9:baksheesh.h   **** const uint8_t TP[6] = {8, 13, 19, 35, 67, 106};
+  10:baksheesh.h   **** void Display_state_nibble(uint8_t *state){
+  54               		.loc 2 10 0
+  55               		.cfi_startproc
+  56               	.LVL2:
+  57               		.loc 2 10 0
+  58 0008 EF92      		push r14
+  59               	.LCFI0:
+  60               		.cfi_def_cfa_offset 4
+  61               		.cfi_offset 14, -3
+  62 000a FF92      		push r15
+  63               	.LCFI1:
+  64               		.cfi_def_cfa_offset 5
+  65               		.cfi_offset 15, -4
+  66 000c 0F93      		push r16
+  67               	.LCFI2:
+  68               		.cfi_def_cfa_offset 6
+  69               		.cfi_offset 16, -5
+  70 000e 1F93      		push r17
+  71               	.LCFI3:
+  72               		.cfi_def_cfa_offset 7
+  73               		.cfi_offset 17, -6
+  74 0010 CF93      		push r28
+  75               	.LCFI4:
+  76               		.cfi_def_cfa_offset 8
+  77               		.cfi_offset 28, -7
+  78 0012 DF93      		push r29
+  79               	.LCFI5:
+  80               		.cfi_def_cfa_offset 9
+  81               		.cfi_offset 29, -8
+  82               	/* prologue: function */
+  83               	/* frame size = 0 */
+  84               	/* stack size = 6 */
+  85               	.L__stack_usage = 6
+  86 0014 8C01      		movw r16,r24
+  87               	.LVL3:
+  88 0016 EC01      		movw r28,r24
+  89 0018 A096      		adiw r28,32
+  90               	.LBB2:
+  11:baksheesh.h   **** 
+  12:baksheesh.h   ****   for(int i = 0; i < 32; i++){
+  13:baksheesh.h   ****     printf("%x", state[32 - i - 1]);
+  91               		.loc 2 13 0
+  92 001a 80E0      		ldi r24,lo8(.LC0)
+  93 001c E82E      		mov r14,r24
+  94 001e 80E0      		ldi r24,hi8(.LC0)
+  95 0020 F82E      		mov r15,r24
+  96               	.LVL4:
+  97               	.L4:
+  98               		.loc 2 13 0 is_stmt 0 discriminator 3
+  99 0022 8A91      		ld r24,-Y
+ 100               	.LVL5:
+ 101 0024 1F92      		push __zero_reg__
+ 102               	.LCFI6:
+ 103               		.cfi_def_cfa_offset 10
+ 104 0026 8F93      		push r24
+ 105               	.LCFI7:
+ 106               		.cfi_def_cfa_offset 11
+ 107 0028 FF92      		push r15
+ 108               	.LCFI8:
+ 109               		.cfi_def_cfa_offset 12
+ 110 002a EF92      		push r14
+ 111               	.LCFI9:
+ 112               		.cfi_def_cfa_offset 13
+ 113 002c 0E94 0000 		call printf
+ 114               	.LVL6:
+  12:baksheesh.h   ****     printf("%x", state[32 - i - 1]);
+ 115               		.loc 2 12 0 is_stmt 1 discriminator 3
+ 116 0030 0F90      		pop __tmp_reg__
+ 117 0032 0F90      		pop __tmp_reg__
+ 118 0034 0F90      		pop __tmp_reg__
+ 119 0036 0F90      		pop __tmp_reg__
+ 120               	.LCFI10:
+ 121               		.cfi_def_cfa_offset 9
+ 122 0038 C017      		cp r28,r16
+ 123 003a D107      		cpc r29,r17
+ 124 003c 01F4      		brne .L4
+ 125               	.LBE2:
+  14:baksheesh.h   ****   }
+  15:baksheesh.h   ****   printf("\n");
+ 126               		.loc 2 15 0
+ 127 003e 8AE0      		ldi r24,lo8(10)
+ 128 0040 90E0      		ldi r25,0
+ 129               	/* epilogue start */
+  16:baksheesh.h   **** 
+  17:baksheesh.h   **** }
+ 130               		.loc 2 17 0
+ 131 0042 DF91      		pop r29
+ 132 0044 CF91      		pop r28
+ 133               	.LVL7:
+ 134 0046 1F91      		pop r17
+ 135 0048 0F91      		pop r16
+ 136               	.LVL8:
+ 137 004a FF90      		pop r15
+ 138 004c EF90      		pop r14
+  15:baksheesh.h   **** 
+ 139               		.loc 2 15 0
+ 140 004e 0C94 0000 		jmp putchar
+ 141               	.LVL9:
+ 142               		.cfi_endproc
+ 143               	.LFE12:
+ 145               	.global	Display_state_bit
+ 147               	Display_state_bit:
+ 148               	.LFB13:
+  18:baksheesh.h   **** void Display_state_bit(uint8_t *state){
+ 149               		.loc 2 18 0
+ 150               		.cfi_startproc
+ 151               	.LVL10:
+ 152 0052 CF92      		push r12
+ 153               	.LCFI11:
+ 154               		.cfi_def_cfa_offset 4
+ 155               		.cfi_offset 12, -3
+ 156 0054 DF92      		push r13
+ 157               	.LCFI12:
+ 158               		.cfi_def_cfa_offset 5
+ 159               		.cfi_offset 13, -4
+ 160 0056 EF92      		push r14
+ 161               	.LCFI13:
+ 162               		.cfi_def_cfa_offset 6
+ 163               		.cfi_offset 14, -5
+ 164 0058 FF92      		push r15
+ 165               	.LCFI14:
+ 166               		.cfi_def_cfa_offset 7
+ 167               		.cfi_offset 15, -6
+ 168 005a 0F93      		push r16
+ 169               	.LCFI15:
+ 170               		.cfi_def_cfa_offset 8
+ 171               		.cfi_offset 16, -7
+ 172 005c 1F93      		push r17
+ 173               	.LCFI16:
+ 174               		.cfi_def_cfa_offset 9
+ 175               		.cfi_offset 17, -8
+ 176 005e CF93      		push r28
+ 177               	.LCFI17:
+ 178               		.cfi_def_cfa_offset 10
+ 179               		.cfi_offset 28, -9
+ 180 0060 DF93      		push r29
+ 181               	.LCFI18:
+ 182               		.cfi_def_cfa_offset 11
+ 183               		.cfi_offset 29, -10
+ 184               	/* prologue: function */
+ 185               	/* frame size = 0 */
+ 186               	/* stack size = 8 */
+ 187               	.L__stack_usage = 8
+ 188 0062 8C01      		movw r16,r24
+  19:baksheesh.h   ****   printf(" ");
+ 189               		.loc 2 19 0
+ 190 0064 80E2      		ldi r24,lo8(32)
+ 191 0066 90E0      		ldi r25,0
+ 192               	.LVL11:
+ 193 0068 0E94 0000 		call putchar
+ 194               	.LVL12:
+ 195 006c E801      		movw r28,r16
+ 196 006e 7801      		movw r14,r16
+ 197 0070 80E2      		ldi r24,32
+ 198 0072 E81A      		sub r14,r24
+ 199 0074 F108      		sbc r15,__zero_reg__
+ 200               	.LBB3:
+ 201               	.LBB4:
+  20:baksheesh.h   ****   for(int i = 0; i < 32; i++){
+  21:baksheesh.h   ****     for(int j = 0; j < 4; j++){
+  22:baksheesh.h   ****       printf("%x", ((state[32 - i - 1] >> (3-j)) & 0x1));
+ 202               		.loc 2 22 0
+ 203 0076 00E0      		ldi r16,lo8(.LC0)
+ 204 0078 10E0      		ldi r17,hi8(.LC0)
+ 205               	.LVL13:
+ 206               	.L8:
+ 207               	.LBE4:
+ 208               	.LBE3:
+  18:baksheesh.h   ****   printf(" ");
+ 209               		.loc 2 18 0
+ 210 007a 83E0      		ldi r24,lo8(3)
+ 211 007c C82E      		mov r12,r24
+ 212 007e D12C      		mov r13,__zero_reg__
+ 213               	.LVL14:
+ 214               	.L9:
+ 215               	.LBB6:
+ 216               	.LBB5:
+ 217               		.loc 2 22 0 discriminator 3
+ 218 0080 8F8D      		ldd r24,Y+31
+ 219 0082 90E0      		ldi r25,0
+ 220 0084 0C2C      		mov r0,r12
+ 221 0086 00C0      		rjmp 2f
+ 222               		1:
+ 223 0088 9595      		asr r25
+ 224 008a 8795      		ror r24
+ 225               		2:
+ 226 008c 0A94      		dec r0
+ 227 008e 02F4      		brpl 1b
+ 228 0090 8170      		andi r24,1
+ 229 0092 9927      		clr r25
+ 230 0094 9F93      		push r25
+ 231               	.LCFI19:
+ 232               		.cfi_def_cfa_offset 12
+ 233 0096 8F93      		push r24
+ 234               	.LCFI20:
+ 235               		.cfi_def_cfa_offset 13
+ 236 0098 1F93      		push r17
+ 237               	.LCFI21:
+ 238               		.cfi_def_cfa_offset 14
+ 239 009a 0F93      		push r16
+ 240               	.LCFI22:
+ 241               		.cfi_def_cfa_offset 15
+ 242 009c 0E94 0000 		call printf
+ 243               	.LVL15:
+ 244 00a0 81E0      		ldi r24,1
+ 245 00a2 C81A      		sub r12,r24
+ 246 00a4 D108      		sbc r13,__zero_reg__
+ 247               	.LVL16:
+  21:baksheesh.h   ****       printf("%x", ((state[32 - i - 1] >> (3-j)) & 0x1));
+ 248               		.loc 2 21 0 discriminator 3
+ 249 00a6 0F90      		pop __tmp_reg__
+ 250 00a8 0F90      		pop __tmp_reg__
+ 251 00aa 0F90      		pop __tmp_reg__
+ 252 00ac 0F90      		pop __tmp_reg__
+ 253               	.LCFI23:
+ 254               		.cfi_def_cfa_offset 11
+ 255 00ae 8FEF      		ldi r24,-1
+ 256 00b0 C816      		cp r12,r24
+ 257 00b2 D806      		cpc r13,r24
+ 258 00b4 01F4      		brne .L9
+ 259               	.LBE5:
+  23:baksheesh.h   ****     }
+  24:baksheesh.h   ****     printf(" ");
+ 260               		.loc 2 24 0 discriminator 2
+ 261 00b6 80E2      		ldi r24,lo8(32)
+ 262 00b8 90E0      		ldi r25,0
+ 263 00ba 0E94 0000 		call putchar
+ 264               	.LVL17:
+ 265 00be 2197      		sbiw r28,1
+ 266               	.LVL18:
+  20:baksheesh.h   ****     for(int j = 0; j < 4; j++){
+ 267               		.loc 2 20 0 discriminator 2
+ 268 00c0 EC16      		cp r14,r28
+ 269 00c2 FD06      		cpc r15,r29
+ 270 00c4 01F4      		brne .L8
+ 271               	.LBE6:
+  25:baksheesh.h   ****   }
+  26:baksheesh.h   ****   printf("\n");
+ 272               		.loc 2 26 0
+ 273 00c6 8AE0      		ldi r24,lo8(10)
+ 274 00c8 90E0      		ldi r25,0
+ 275               	/* epilogue start */
+  27:baksheesh.h   **** }
+ 276               		.loc 2 27 0
+ 277 00ca DF91      		pop r29
+ 278 00cc CF91      		pop r28
+ 279               	.LVL19:
+ 280 00ce 1F91      		pop r17
+ 281 00d0 0F91      		pop r16
+ 282 00d2 FF90      		pop r15
+ 283 00d4 EF90      		pop r14
+ 284               	.LVL20:
+ 285 00d6 DF90      		pop r13
+ 286 00d8 CF90      		pop r12
+ 287               	.LVL21:
+  26:baksheesh.h   **** }
+ 288               		.loc 2 26 0
+ 289 00da 0C94 0000 		jmp putchar
+ 290               	.LVL22:
+ 291               		.cfi_endproc
+ 292               	.LFE13:
+ 294               	.global	to_bits
+ 296               	to_bits:
+ 297               	.LFB14:
+  28:baksheesh.h   **** 
+  29:baksheesh.h   **** //X0 <- x00, X1 <- x01,...., X4 <- x10, X5 <- x11,... etc.
+  30:baksheesh.h   **** //127,126,125,124,          .....        7,6,5,4,  3,2,1,0
+  31:baksheesh.h   **** void to_bits(uint8_t *A, uint8_t *B){
+ 298               		.loc 2 31 0
+ 299               		.cfi_startproc
+ 300               	.LVL23:
+ 301 00de CF93      		push r28
+ 302               	.LCFI24:
+ 303               		.cfi_def_cfa_offset 4
+ 304               		.cfi_offset 28, -3
+ 305 00e0 DF93      		push r29
+ 306               	.LCFI25:
+ 307               		.cfi_def_cfa_offset 5
+ 308               		.cfi_offset 29, -4
+ 309               	/* prologue: function */
+ 310               	/* frame size = 0 */
+ 311               	/* stack size = 2 */
+ 312               	.L__stack_usage = 2
+ 313               	.LVL24:
+ 314 00e2 DB01      		movw r26,r22
+ 315 00e4 A058      		subi r26,-128
+ 316 00e6 BF4F      		sbci r27,-1
+ 317               	.LVL25:
+ 318               	.L13:
+ 319               		.loc 2 31 0
+ 320 00e8 FB01      		movw r30,r22
+ 321 00ea 40E0      		ldi r20,0
+ 322 00ec 50E0      		ldi r21,0
+ 323               	.LVL26:
+ 324               	.L14:
+ 325               	.LBB7:
+ 326               	.LBB8:
+  32:baksheesh.h   ****     for(int i = 0; i < 32; i++){
+  33:baksheesh.h   ****         for(int j = 0; j < 4; j++){
+  34:baksheesh.h   ****         B[(i * 4) + j] = (A[i] >> j) & 0x1;
+ 327               		.loc 2 34 0 discriminator 3
+ 328 00ee EC01      		movw r28,r24
+ 329 00f0 2881      		ld r18,Y
+ 330 00f2 30E0      		ldi r19,0
+ 331 00f4 042E      		mov r0,r20
+ 332 00f6 00C0      		rjmp 2f
+ 333               		1:
+ 334 00f8 3595      		asr r19
+ 335 00fa 2795      		ror r18
+ 336               		2:
+ 337 00fc 0A94      		dec r0
+ 338 00fe 02F4      		brpl 1b
+ 339 0100 2170      		andi r18,lo8(1)
+ 340 0102 2193      		st Z+,r18
+  33:baksheesh.h   ****         B[(i * 4) + j] = (A[i] >> j) & 0x1;
+ 341               		.loc 2 33 0 discriminator 3
+ 342 0104 4F5F      		subi r20,-1
+ 343 0106 5F4F      		sbci r21,-1
+ 344               	.LVL27:
+ 345 0108 4430      		cpi r20,4
+ 346 010a 5105      		cpc r21,__zero_reg__
+ 347 010c 01F4      		brne .L14
+ 348               	.LVL28:
+ 349 010e 6C5F      		subi r22,-4
+ 350 0110 7F4F      		sbci r23,-1
+ 351 0112 0196      		adiw r24,1
+ 352               	.LVL29:
+ 353               	.LBE8:
+  32:baksheesh.h   ****     for(int i = 0; i < 32; i++){
+ 354               		.loc 2 32 0 discriminator 2
+ 355 0114 6A17      		cp r22,r26
+ 356 0116 7B07      		cpc r23,r27
+ 357 0118 01F4      		brne .L13
+ 358               	/* epilogue start */
+ 359               	.LBE7:
+  35:baksheesh.h   ****         }
+  36:baksheesh.h   ****     }
+  37:baksheesh.h   **** }
+ 360               		.loc 2 37 0
+ 361 011a DF91      		pop r29
+ 362 011c CF91      		pop r28
+ 363               	.LVL30:
+ 364 011e 0895      		ret
+ 365               		.cfi_endproc
+ 366               	.LFE14:
+ 368               	.global	from_bits
+ 370               	from_bits:
+ 371               	.LFB15:
+  38:baksheesh.h   **** void from_bits(uint8_t *A, uint8_t *B){
+ 372               		.loc 2 38 0
+ 373               		.cfi_startproc
+ 374               	.LVL31:
+ 375               	/* prologue: function */
+ 376               	/* frame size = 0 */
+ 377               	/* stack size = 0 */
+ 378               	.L__stack_usage = 0
+ 379 0120 FC01      		movw r30,r24
+ 380 0122 DB01      		movw r26,r22
+ 381 0124 AC01      		movw r20,r24
+ 382 0126 4058      		subi r20,-128
+ 383 0128 5F4F      		sbci r21,-1
+ 384               	.LVL32:
+ 385               	.L18:
+ 386               	.LBB9:
+  39:baksheesh.h   ****     //convert bit-wise variables into nibble-wise variables
+  40:baksheesh.h   ****     for(int i = 0; i < 32; i++){
+  41:baksheesh.h   ****         //0 is LSB and 3 is MSB in each nibble
+  42:baksheesh.h   ****         B[i]  = (A[(4 * i)]         );
+ 387               		.loc 2 42 0 discriminator 3
+ 388 012a 9081      		ld r25,Z
+ 389 012c 9C93      		st X,r25
+  43:baksheesh.h   ****         B[i] ^= (A[(4 * i) + 1] << 1);
+ 390               		.loc 2 43 0 discriminator 3
+ 391 012e 8181      		ldd r24,Z+1
+ 392 0130 880F      		lsl r24
+ 393 0132 282F      		mov r18,r24
+ 394 0134 2927      		eor r18,r25
+ 395 0136 2C93      		st X,r18
+  44:baksheesh.h   ****         B[i] ^= (A[(4 * i) + 2] << 2);
+ 396               		.loc 2 44 0 discriminator 3
+ 397 0138 9281      		ldd r25,Z+2
+ 398 013a 34E0      		ldi r19,lo8(4)
+ 399 013c 939F      		mul r25,r19
+ 400 013e C001      		movw r24,r0
+ 401 0140 1124      		clr __zero_reg__
+ 402 0142 8227      		eor r24,r18
+ 403 0144 8C93      		st X,r24
+  45:baksheesh.h   ****         B[i] ^= (A[(4 * i) + 3] << 3);
+ 404               		.loc 2 45 0 discriminator 3
+ 405 0146 2381      		ldd r18,Z+3
+ 406 0148 98E0      		ldi r25,lo8(8)
+ 407 014a 299F      		mul r18,r25
+ 408 014c 9001      		movw r18,r0
+ 409 014e 1124      		clr __zero_reg__
+ 410 0150 8227      		eor r24,r18
+ 411 0152 8D93      		st X+,r24
+ 412               	.LVL33:
+ 413 0154 3496      		adiw r30,4
+  40:baksheesh.h   ****         //0 is LSB and 3 is MSB in each nibble
+ 414               		.loc 2 40 0 discriminator 3
+ 415 0156 E417      		cp r30,r20
+ 416 0158 F507      		cpc r31,r21
+ 417 015a 01F4      		brne .L18
+ 418               	/* epilogue start */
+ 419               	.LBE9:
+  46:baksheesh.h   ****     }
+  47:baksheesh.h   **** }
+ 420               		.loc 2 47 0
+ 421 015c 0895      		ret
+ 422               		.cfi_endproc
+ 423               	.LFE15:
+ 425               	.global	SBox
+ 427               	SBox:
+ 428               	.LFB16:
+  48:baksheesh.h   **** void SBox(uint8_t *state){
+ 429               		.loc 2 48 0
+ 430               		.cfi_startproc
+ 431               	.LVL34:
+ 432               	/* prologue: function */
+ 433               	/* frame size = 0 */
+ 434               	/* stack size = 0 */
+ 435               	.L__stack_usage = 0
+ 436 015e FC01      		movw r30,r24
+ 437               	.LVL35:
+ 438 0160 8096      		adiw r24,32
+ 439               	.LVL36:
+ 440               	.L21:
+ 441               	.LBB10:
+  49:baksheesh.h   ****     //SBox
+  50:baksheesh.h   ****     for(int i=0; i<32; i++){
+  51:baksheesh.h   ****     	state[i] = sbox[state[i]];
+ 442               		.loc 2 51 0 discriminator 3
+ 443 0162 A081      		ld r26,Z
+ 444 0164 B0E0      		ldi r27,0
+ 445 0166 A050      		subi r26,lo8(-(sbox))
+ 446 0168 B040      		sbci r27,hi8(-(sbox))
+ 447 016a 2C91      		ld r18,X
+ 448 016c 2193      		st Z+,r18
+ 449               	.LVL37:
+  50:baksheesh.h   ****     	state[i] = sbox[state[i]];
+ 450               		.loc 2 50 0 discriminator 3
+ 451 016e E817      		cp r30,r24
+ 452 0170 F907      		cpc r31,r25
+ 453 0172 01F4      		brne .L21
+ 454               	/* epilogue start */
+ 455               	.LBE10:
+  52:baksheesh.h   ****     }
+  53:baksheesh.h   **** }
+ 456               		.loc 2 53 0
+ 457 0174 0895      		ret
+ 458               		.cfi_endproc
+ 459               	.LFE16:
+ 461               	.global	genPerm
+ 463               	genPerm:
+ 464               	.LFB17:
+  54:baksheesh.h   **** int genPerm(int i) {
+ 465               		.loc 2 54 0
+ 466               		.cfi_startproc
+ 467               	.LVL38:
+ 468               	/* prologue: function */
+ 469               	/* frame size = 0 */
+ 470               	/* stack size = 0 */
+ 471               	.L__stack_usage = 0
+  55:baksheesh.h   ****     return ((i >> 4) << 2) + (((3*((i & 0xf)>>2) + (i & 3)) & 3) << 5) + (i & 3);
+ 472               		.loc 2 55 0
+ 473 0176 9C01      		movw r18,r24
+ 474 0178 2F70      		andi r18,15
+ 475 017a 3327      		clr r19
+ 476 017c 3595      		asr r19
+ 477 017e 2795      		ror r18
+ 478 0180 3595      		asr r19
+ 479 0182 2795      		ror r18
+ 480 0184 A901      		movw r20,r18
+ 481 0186 440F      		lsl r20
+ 482 0188 551F      		rol r21
+ 483 018a 240F      		add r18,r20
+ 484 018c 351F      		adc r19,r21
+ 485 018e 280F      		add r18,r24
+ 486 0190 391F      		adc r19,r25
+ 487 0192 2370      		andi r18,3
+ 488 0194 3327      		clr r19
+ 489 0196 75E0      		ldi r23,5
+ 490               		1:
+ 491 0198 220F      		lsl r18
+ 492 019a 331F      		rol r19
+ 493 019c 7A95      		dec r23
+ 494 019e 01F4      		brne 1b
+ 495 01a0 AC01      		movw r20,r24
+ 496 01a2 E4E0      		ldi r30,4
+ 497               		1:
+ 498 01a4 5595      		asr r21
+ 499 01a6 4795      		ror r20
+ 500 01a8 EA95      		dec r30
+ 501 01aa 01F4      		brne 1b
+ 502 01ac 440F      		lsl r20
+ 503 01ae 551F      		rol r21
+ 504 01b0 440F      		lsl r20
+ 505 01b2 551F      		rol r21
+ 506 01b4 240F      		add r18,r20
+ 507 01b6 351F      		adc r19,r21
+ 508 01b8 8370      		andi r24,3
+ 509 01ba 9927      		clr r25
+ 510               	.LVL39:
+  56:baksheesh.h   **** }
+ 511               		.loc 2 56 0
+ 512 01bc 820F      		add r24,r18
+ 513 01be 931F      		adc r25,r19
+ 514 01c0 0895      		ret
+ 515               		.cfi_endproc
+ 516               	.LFE17:
+ 518               	.global	PLayer
+ 520               	PLayer:
+ 521               	.LFB18:
+  57:baksheesh.h   **** void PLayer(uint8_t *state){
+ 522               		.loc 2 57 0
+ 523               		.cfi_startproc
+ 524               	.LVL40:
+ 525 01c2 CF92      		push r12
+ 526               	.LCFI26:
+ 527               		.cfi_def_cfa_offset 4
+ 528               		.cfi_offset 12, -3
+ 529 01c4 DF92      		push r13
+ 530               	.LCFI27:
+ 531               		.cfi_def_cfa_offset 5
+ 532               		.cfi_offset 13, -4
+ 533 01c6 EF92      		push r14
+ 534               	.LCFI28:
+ 535               		.cfi_def_cfa_offset 6
+ 536               		.cfi_offset 14, -5
+ 537 01c8 FF92      		push r15
+ 538               	.LCFI29:
+ 539               		.cfi_def_cfa_offset 7
+ 540               		.cfi_offset 15, -6
+ 541 01ca 0F93      		push r16
+ 542               	.LCFI30:
+ 543               		.cfi_def_cfa_offset 8
+ 544               		.cfi_offset 16, -7
+ 545 01cc 1F93      		push r17
+ 546               	.LCFI31:
+ 547               		.cfi_def_cfa_offset 9
+ 548               		.cfi_offset 17, -8
+ 549 01ce CF93      		push r28
+ 550               	.LCFI32:
+ 551               		.cfi_def_cfa_offset 10
+ 552               		.cfi_offset 28, -9
+ 553 01d0 DF93      		push r29
+ 554               	.LCFI33:
+ 555               		.cfi_def_cfa_offset 11
+ 556               		.cfi_offset 29, -10
+ 557 01d2 CDB7      		in r28,__SP_L__
+ 558 01d4 DEB7      		in r29,__SP_H__
+ 559               	.LCFI34:
+ 560               		.cfi_def_cfa_register 28
+ 561 01d6 DA95      		dec r29
+ 562               	.LCFI35:
+ 563               		.cfi_def_cfa_offset 267
+ 564 01d8 CDBF      		out __SP_L__,r28
+ 565 01da DEBF      		out __SP_H__,r29
+ 566               	/* prologue: function */
+ 567               	/* frame size = 256 */
+ 568               	/* stack size = 264 */
+ 569               	.L__stack_usage = 264
+ 570 01dc 6C01      		movw r12,r24
+  58:baksheesh.h   ****     uint8_t tmp[128];
+  59:baksheesh.h   ****     uint8_t bits[128];
+  60:baksheesh.h   ****     to_bits(state, tmp);
+ 571               		.loc 2 60 0
+ 572 01de BE01      		movw r22,r28
+ 573 01e0 6F57      		subi r22,127
+ 574 01e2 7F4F      		sbci r23,-1
+ 575 01e4 0E94 0000 		call to_bits
+ 576               	.LVL41:
+ 577 01e8 8E01      		movw r16,r28
+ 578 01ea 0F57      		subi r16,127
+ 579 01ec 1F4F      		sbci r17,-1
+ 580               	.LBB11:
+  61:baksheesh.h   ****     for(int i = 0; i < 128; i++){
+ 581               		.loc 2 61 0
+ 582 01ee E12C      		mov r14,__zero_reg__
+ 583 01f0 F12C      		mov r15,__zero_reg__
+ 584               	.LVL42:
+ 585               	.L25:
+  62:baksheesh.h   ****         bits[genPerm(i)] = tmp[i];
+ 586               		.loc 2 62 0 discriminator 3
+ 587 01f2 C701      		movw r24,r14
+ 588 01f4 0E94 0000 		call genPerm
+ 589               	.LVL43:
+ 590 01f8 F801      		movw r30,r16
+ 591 01fa 2191      		ld r18,Z+
+ 592 01fc 8F01      		movw r16,r30
+ 593 01fe 41E0      		ldi r20,lo8(1)
+ 594 0200 50E0      		ldi r21,0
+ 595 0202 4C0F      		add r20,r28
+ 596 0204 5D1F      		adc r21,r29
+ 597 0206 840F      		add r24,r20
+ 598 0208 951F      		adc r25,r21
+ 599 020a FC01      		movw r30,r24
+ 600 020c 2083      		st Z,r18
+  61:baksheesh.h   ****     for(int i = 0; i < 128; i++){
+ 601               		.loc 2 61 0 discriminator 3
+ 602 020e FFEF      		ldi r31,-1
+ 603 0210 EF1A      		sub r14,r31
+ 604 0212 FF0A      		sbc r15,r31
+ 605               	.LVL44:
+ 606 0214 40E8      		ldi r20,-128
+ 607 0216 E416      		cp r14,r20
+ 608 0218 F104      		cpc r15,__zero_reg__
+ 609 021a 01F4      		brne .L25
+ 610               	.LBE11:
+  63:baksheesh.h   ****     }
+  64:baksheesh.h   ****     from_bits(bits, state);
+ 611               		.loc 2 64 0
+ 612 021c B601      		movw r22,r12
+ 613 021e CE01      		movw r24,r28
+ 614 0220 0196      		adiw r24,1
+ 615 0222 0E94 0000 		call from_bits
+ 616               	.LVL45:
+ 617               	/* epilogue start */
+  65:baksheesh.h   **** }
+ 618               		.loc 2 65 0
+ 619 0226 D395      		inc r29
+ 620 0228 CDBF      		out __SP_L__,r28
+ 621 022a DEBF      		out __SP_H__,r29
+ 622 022c DF91      		pop r29
+ 623 022e CF91      		pop r28
+ 624 0230 1F91      		pop r17
+ 625 0232 0F91      		pop r16
+ 626 0234 FF90      		pop r15
+ 627 0236 EF90      		pop r14
+ 628               	.LVL46:
+ 629 0238 DF90      		pop r13
+ 630 023a CF90      		pop r12
+ 631               	.LVL47:
+ 632 023c 0895      		ret
+ 633               		.cfi_endproc
+ 634               	.LFE18:
+ 636               	.global	addRc
+ 638               	addRc:
+ 639               	.LFB19:
+  66:baksheesh.h   **** void addRc(uint8_t *state, int r){
+ 640               		.loc 2 66 0
+ 641               		.cfi_startproc
+ 642               	.LVL48:
+ 643 023e EF92      		push r14
+ 644               	.LCFI36:
+ 645               		.cfi_def_cfa_offset 4
+ 646               		.cfi_offset 14, -3
+ 647 0240 FF92      		push r15
+ 648               	.LCFI37:
+ 649               		.cfi_def_cfa_offset 5
+ 650               		.cfi_offset 15, -4
+ 651 0242 0F93      		push r16
+ 652               	.LCFI38:
+ 653               		.cfi_def_cfa_offset 6
+ 654               		.cfi_offset 16, -5
+ 655 0244 1F93      		push r17
+ 656               	.LCFI39:
+ 657               		.cfi_def_cfa_offset 7
+ 658               		.cfi_offset 17, -6
+ 659 0246 CF93      		push r28
+ 660               	.LCFI40:
+ 661               		.cfi_def_cfa_offset 8
+ 662               		.cfi_offset 28, -7
+ 663 0248 DF93      		push r29
+ 664               	.LCFI41:
+ 665               		.cfi_def_cfa_offset 9
+ 666               		.cfi_offset 29, -8
+ 667 024a CDB7      		in r28,__SP_L__
+ 668 024c DEB7      		in r29,__SP_H__
+ 669               	.LCFI42:
+ 670               		.cfi_def_cfa_register 28
+ 671 024e C058      		subi r28,-128
+ 672 0250 D109      		sbc r29,__zero_reg__
+ 673               	.LCFI43:
+ 674               		.cfi_def_cfa_offset 137
+ 675 0252 CDBF      		out __SP_L__,r28
+ 676 0254 DEBF      		out __SP_H__,r29
+ 677               	/* prologue: function */
+ 678               	/* frame size = 128 */
+ 679               	/* stack size = 134 */
+ 680               	.L__stack_usage = 134
+ 681 0256 8C01      		movw r16,r24
+ 682 0258 7B01      		movw r14,r22
+  67:baksheesh.h   ****     uint8_t buf[128];
+  68:baksheesh.h   ****     to_bits(state, buf);
+ 683               		.loc 2 68 0
+ 684 025a BE01      		movw r22,r28
+ 685               	.LVL49:
+ 686 025c 6F5F      		subi r22,-1
+ 687 025e 7F4F      		sbci r23,-1
+ 688 0260 0E94 0000 		call to_bits
+ 689               	.LVL50:
+  69:baksheesh.h   ****     buf[TP[0]] ^= (RC[r]     ) & 0x1;
+ 690               		.loc 2 69 0
+ 691 0264 F701      		movw r30,r14
+ 692 0266 E050      		subi r30,lo8(-(RC))
+ 693 0268 F040      		sbci r31,hi8(-(RC))
+ 694 026a 8081      		ld r24,Z
+ 695 026c 982F      		mov r25,r24
+ 696 026e 9170      		andi r25,lo8(1)
+ 697 0270 2985      		ldd r18,Y+9
+ 698 0272 9227      		eor r25,r18
+ 699 0274 9987      		std Y+9,r25
+  70:baksheesh.h   ****     buf[TP[1]] ^= (RC[r] >> 1) & 0x1;
+ 700               		.loc 2 70 0
+ 701 0276 81FB      		bst r24,1
+ 702 0278 9927      		clr r25
+ 703 027a 90F9      		bld r25,0
+ 704 027c 2E85      		ldd r18,Y+14
+ 705 027e 9227      		eor r25,r18
+ 706 0280 9E87      		std Y+14,r25
+  71:baksheesh.h   ****     buf[TP[2]] ^= (RC[r] >> 2) & 0x1;
+ 707               		.loc 2 71 0
+ 708 0282 82FB      		bst r24,2
+ 709 0284 9927      		clr r25
+ 710 0286 90F9      		bld r25,0
+ 711 0288 2C89      		ldd r18,Y+20
+ 712 028a 9227      		eor r25,r18
+ 713 028c 9C8B      		std Y+20,r25
+  72:baksheesh.h   ****     buf[TP[3]] ^= (RC[r] >> 3) & 0x1;
+ 714               		.loc 2 72 0
+ 715 028e 83FB      		bst r24,3
+ 716 0290 9927      		clr r25
+ 717 0292 90F9      		bld r25,0
+ 718 0294 2CA1      		ldd r18,Y+36
+ 719 0296 9227      		eor r25,r18
+ 720 0298 9CA3      		std Y+36,r25
+  73:baksheesh.h   ****     buf[TP[4]] ^= (RC[r] >> 4) & 0x1;
+ 721               		.loc 2 73 0
+ 722 029a 84FB      		bst r24,4
+ 723 029c 2227      		clr r18
+ 724 029e 20F9      		bld r18,0
+ 725 02a0 2596      		adiw r28,68-63
+ 726 02a2 9FAD      		ldd r25,Y+63
+ 727 02a4 2597      		sbiw r28,68-63
+ 728 02a6 9227      		eor r25,r18
+ 729 02a8 2596      		adiw r28,68-63
+ 730 02aa 9FAF      		std Y+63,r25
+ 731 02ac 2597      		sbiw r28,68-63
+  74:baksheesh.h   ****     buf[TP[5]] ^= (RC[r] >> 5) & 0x1;
+ 732               		.loc 2 74 0
+ 733 02ae 85FB      		bst r24,5
+ 734 02b0 8827      		clr r24
+ 735 02b2 80F9      		bld r24,0
+ 736 02b4 AC96      		adiw r28,107-63
+ 737 02b6 9FAD      		ldd r25,Y+63
+ 738 02b8 AC97      		sbiw r28,107-63
+ 739 02ba 8927      		eor r24,r25
+ 740 02bc AC96      		adiw r28,107-63
+ 741 02be 8FAF      		std Y+63,r24
+ 742 02c0 AC97      		sbiw r28,107-63
+  75:baksheesh.h   ****     from_bits(buf, state);
+ 743               		.loc 2 75 0
+ 744 02c2 B801      		movw r22,r16
+ 745 02c4 CE01      		movw r24,r28
+ 746 02c6 0196      		adiw r24,1
+ 747 02c8 0E94 0000 		call from_bits
+ 748               	.LVL51:
+ 749               	/* epilogue start */
+  76:baksheesh.h   **** }
+ 750               		.loc 2 76 0
+ 751 02cc C058      		subi r28,-128
+ 752 02ce DF4F      		sbci r29,-1
+ 753 02d0 CDBF      		out __SP_L__,r28
+ 754 02d2 DEBF      		out __SP_H__,r29
+ 755 02d4 DF91      		pop r29
+ 756 02d6 CF91      		pop r28
+ 757 02d8 1F91      		pop r17
+ 758 02da 0F91      		pop r16
+ 759               	.LVL52:
+ 760 02dc FF90      		pop r15
+ 761 02de EF90      		pop r14
+ 762               	.LVL53:
+ 763 02e0 0895      		ret
+ 764               		.cfi_endproc
+ 765               	.LFE19:
+ 767               	.global	addRk
+ 769               	addRk:
+ 770               	.LFB20:
+  77:baksheesh.h   **** void addRk(uint8_t *state, uint8_t *key){
+ 771               		.loc 2 77 0
+ 772               		.cfi_startproc
+ 773               	.LVL54:
+ 774               	/* prologue: function */
+ 775               	/* frame size = 0 */
+ 776               	/* stack size = 0 */
+ 777               	.L__stack_usage = 0
+ 778 02e2 FC01      		movw r30,r24
+ 779 02e4 9C01      		movw r18,r24
+ 780 02e6 205E      		subi r18,-32
+ 781 02e8 3F4F      		sbci r19,-1
+ 782               	.LVL55:
+ 783               	.L29:
+ 784               	.LBB12:
+  78:baksheesh.h   ****     for(int i = 0; i < 32; i++){
+  79:baksheesh.h   ****         state[i] ^= key[i];
+ 785               		.loc 2 79 0 discriminator 3
+ 786 02ea DB01      		movw r26,r22
+ 787 02ec 8D91      		ld r24,X+
+ 788 02ee BD01      		movw r22,r26
+ 789 02f0 9081      		ld r25,Z
+ 790 02f2 8927      		eor r24,r25
+ 791 02f4 8193      		st Z+,r24
+ 792               	.LVL56:
+  78:baksheesh.h   ****     for(int i = 0; i < 32; i++){
+ 793               		.loc 2 78 0 discriminator 3
+ 794 02f6 E217      		cp r30,r18
+ 795 02f8 F307      		cpc r31,r19
+ 796 02fa 01F4      		brne .L29
+ 797               	/* epilogue start */
+ 798               	.LBE12:
+  80:baksheesh.h   ****     }
+  81:baksheesh.h   **** }
+ 799               		.loc 2 81 0
+ 800 02fc 0895      		ret
+ 801               		.cfi_endproc
+ 802               	.LFE20:
+ 804               	.global	Key_update
+ 806               	Key_update:
+ 807               	.LFB21:
+  82:baksheesh.h   **** void Key_update(uint8_t *key){
+ 808               		.loc 2 82 0
+ 809               		.cfi_startproc
+ 810               	.LVL57:
+ 811 02fe 0F93      		push r16
+ 812               	.LCFI44:
+ 813               		.cfi_def_cfa_offset 4
+ 814               		.cfi_offset 16, -3
+ 815 0300 1F93      		push r17
+ 816               	.LCFI45:
+ 817               		.cfi_def_cfa_offset 5
+ 818               		.cfi_offset 17, -4
+ 819 0302 CF93      		push r28
+ 820               	.LCFI46:
+ 821               		.cfi_def_cfa_offset 6
+ 822               		.cfi_offset 28, -5
+ 823 0304 DF93      		push r29
+ 824               	.LCFI47:
+ 825               		.cfi_def_cfa_offset 7
+ 826               		.cfi_offset 29, -6
+ 827 0306 CDB7      		in r28,__SP_L__
+ 828 0308 DEB7      		in r29,__SP_H__
+ 829               	.LCFI48:
+ 830               		.cfi_def_cfa_register 28
+ 831 030a DA95      		dec r29
+ 832               	.LCFI49:
+ 833               		.cfi_def_cfa_offset 263
+ 834 030c CDBF      		out __SP_L__,r28
+ 835 030e DEBF      		out __SP_H__,r29
+ 836               	/* prologue: function */
+ 837               	/* frame size = 256 */
+ 838               	/* stack size = 260 */
+ 839               	.L__stack_usage = 260
+ 840 0310 8C01      		movw r16,r24
+  83:baksheesh.h   ****     uint8_t tmp[128];
+  84:baksheesh.h   ****     uint8_t buf[128];
+  85:baksheesh.h   ****     to_bits(key, tmp);
+ 841               		.loc 2 85 0
+ 842 0312 BE01      		movw r22,r28
+ 843 0314 6F57      		subi r22,127
+ 844 0316 7F4F      		sbci r23,-1
+ 845 0318 0E94 0000 		call to_bits
+ 846               	.LVL58:
+ 847 031c A1E8      		ldi r26,lo8(-127)
+ 848 031e B0E0      		ldi r27,0
+ 849 0320 AC0F      		add r26,r28
+ 850 0322 BD1F      		adc r27,r29
+ 851 0324 1196      		adiw r26,1
+ 852 0326 FE01      		movw r30,r28
+ 853 0328 3196      		adiw r30,1
+ 854 032a 9E01      		movw r18,r28
+ 855 032c 2058      		subi r18,-128
+ 856 032e 3F4F      		sbci r19,-1
+ 857 0330 CF01      		movw r24,r30
+ 858               	.LVL59:
+ 859               	.L32:
+ 860               	.LBB13:
+  86:baksheesh.h   ****     //rotation
+  87:baksheesh.h   ****     for(int i = 0; i < 127; i++){
+  88:baksheesh.h   ****         buf[i] = tmp[i + 1];
+ 861               		.loc 2 88 0 discriminator 3
+ 862 0332 4D91      		ld r20,X+
+ 863 0334 4193      		st Z+,r20
+  87:baksheesh.h   ****         buf[i] = tmp[i + 1];
+ 864               		.loc 2 87 0 discriminator 3
+ 865 0336 E217      		cp r30,r18
+ 866 0338 F307      		cpc r31,r19
+ 867 033a 01F4      		brne .L32
+ 868               	.LBE13:
+  89:baksheesh.h   ****     }
+  90:baksheesh.h   ****     buf[127] = tmp[0];
+ 869               		.loc 2 90 0
+ 870 033c CF57      		subi r28,lo8(-129)
+ 871 033e DF4F      		sbci r29,hi8(-129)
+ 872 0340 2881      		ld r18,Y
+ 873 0342 C158      		subi r28,lo8(129)
+ 874 0344 D040      		sbci r29,hi8(129)
+ 875 0346 2083      		st Z,r18
+  91:baksheesh.h   ****     from_bits(buf, key);
+ 876               		.loc 2 91 0
+ 877 0348 B801      		movw r22,r16
+ 878 034a 0E94 0000 		call from_bits
+ 879               	.LVL60:
+ 880               	/* epilogue start */
+  92:baksheesh.h   **** }
+ 881               		.loc 2 92 0
+ 882 034e D395      		inc r29
+ 883 0350 CDBF      		out __SP_L__,r28
+ 884 0352 DEBF      		out __SP_H__,r29
+ 885 0354 DF91      		pop r29
+ 886 0356 CF91      		pop r28
+ 887 0358 1F91      		pop r17
+ 888 035a 0F91      		pop r16
+ 889               	.LVL61:
+ 890 035c 0895      		ret
+ 891               		.cfi_endproc
+ 892               	.LFE21:
+ 894               	.global	enc
+ 896               	enc:
+ 897               	.LFB22:
+  93:baksheesh.h   **** void enc(int rounds, uint8_t *state, uint8_t *key){
+ 898               		.loc 2 93 0
+ 899               		.cfi_startproc
+ 900               	.LVL62:
+ 901 035e 8F92      		push r8
+ 902               	.LCFI50:
+ 903               		.cfi_def_cfa_offset 4
+ 904               		.cfi_offset 8, -3
+ 905 0360 9F92      		push r9
+ 906               	.LCFI51:
+ 907               		.cfi_def_cfa_offset 5
+ 908               		.cfi_offset 9, -4
+ 909 0362 BF92      		push r11
+ 910               	.LCFI52:
+ 911               		.cfi_def_cfa_offset 6
+ 912               		.cfi_offset 11, -5
+ 913 0364 CF92      		push r12
+ 914               	.LCFI53:
+ 915               		.cfi_def_cfa_offset 7
+ 916               		.cfi_offset 12, -6
+ 917 0366 DF92      		push r13
+ 918               	.LCFI54:
+ 919               		.cfi_def_cfa_offset 8
+ 920               		.cfi_offset 13, -7
+ 921 0368 EF92      		push r14
+ 922               	.LCFI55:
+ 923               		.cfi_def_cfa_offset 9
+ 924               		.cfi_offset 14, -8
+ 925 036a FF92      		push r15
+ 926               	.LCFI56:
+ 927               		.cfi_def_cfa_offset 10
+ 928               		.cfi_offset 15, -9
+ 929 036c 0F93      		push r16
+ 930               	.LCFI57:
+ 931               		.cfi_def_cfa_offset 11
+ 932               		.cfi_offset 16, -10
+ 933 036e 1F93      		push r17
+ 934               	.LCFI58:
+ 935               		.cfi_def_cfa_offset 12
+ 936               		.cfi_offset 17, -11
+ 937 0370 CF93      		push r28
+ 938               	.LCFI59:
+ 939               		.cfi_def_cfa_offset 13
+ 940               		.cfi_offset 28, -12
+ 941 0372 DF93      		push r29
+ 942               	.LCFI60:
+ 943               		.cfi_def_cfa_offset 14
+ 944               		.cfi_offset 29, -13
+ 945 0374 CDB7      		in r28,__SP_L__
+ 946 0376 DEB7      		in r29,__SP_H__
+ 947               	.LCFI61:
+ 948               		.cfi_def_cfa_register 28
+ 949 0378 A097      		sbiw r28,32
+ 950               	.LCFI62:
+ 951               		.cfi_def_cfa_offset 46
+ 952 037a CDBF      		out __SP_L__,r28
+ 953 037c DEBF      		out __SP_H__,r29
+ 954               	/* prologue: function */
+ 955               	/* frame size = 32 */
+ 956               	/* stack size = 43 */
+ 957               	.L__stack_usage = 43
+ 958 037e 4C01      		movw r8,r24
+ 959 0380 6B01      		movw r12,r22
+ 960 0382 7A01      		movw r14,r20
+  94:baksheesh.h   ****     uint8_t key_copy[32];
+  95:baksheesh.h   ****     memcpy(key_copy, key, 32);
+ 961               		.loc 2 95 0
+ 962 0384 80E2      		ldi r24,lo8(32)
+ 963               	.LVL63:
+ 964 0386 FA01      		movw r30,r20
+ 965 0388 DE01      		movw r26,r28
+ 966 038a 1196      		adiw r26,1
+ 967               		0:
+ 968 038c 0190      		ld r0,Z+
+ 969 038e 0D92      		st X+,r0
+ 970 0390 8A95      		dec r24
+ 971 0392 01F4      		brne 0b
+  96:baksheesh.h   ****     addRk(state, key);
+ 972               		.loc 2 96 0
+ 973 0394 BA01      		movw r22,r20
+ 974               	.LVL64:
+ 975 0396 C601      		movw r24,r12
+ 976 0398 0E94 0000 		call addRk
+ 977               	.LVL65:
+ 978               	.LBB14:
+  97:baksheesh.h   ****     for(int r=0; r<rounds; r++){
+ 979               		.loc 2 97 0
+ 980 039c 00E0      		ldi r16,0
+ 981 039e 10E0      		ldi r17,0
+  98:baksheesh.h   ****       if(r==29) trigger_high();
+ 982               		.loc 2 98 0
+ 983 03a0 BB24      		clr r11
+ 984 03a2 B394      		inc r11
+ 985               	.LVL66:
+ 986               	.L35:
+  97:baksheesh.h   ****     for(int r=0; r<rounds; r++){
+ 987               		.loc 2 97 0 discriminator 1
+ 988 03a4 0815      		cp r16,r8
+ 989 03a6 1905      		cpc r17,r9
+ 990 03a8 04F4      		brge .L39
+ 991               		.loc 2 98 0
+ 992 03aa 0D31      		cpi r16,29
+ 993 03ac 1105      		cpc r17,__zero_reg__
+ 994 03ae 01F4      		brne .L36
+ 995               		.loc 2 98 0 is_stmt 0 discriminator 1
+ 996 03b0 B092 0506 		sts 1541,r11
+ 997               	.L36:
+  99:baksheesh.h   ****         SBox(state);
+ 998               		.loc 2 99 0 is_stmt 1
+ 999 03b4 C601      		movw r24,r12
+ 1000 03b6 0E94 0000 		call SBox
+ 1001               	.LVL67:
+ 100:baksheesh.h   ****       if(r==29) trigger_low();
+ 1002               		.loc 2 100 0
+ 1003 03ba 0D31      		cpi r16,29
+ 1004 03bc 1105      		cpc r17,__zero_reg__
+ 1005 03be 01F4      		brne .L37
+ 1006               		.loc 2 100 0 is_stmt 0 discriminator 1
+ 1007 03c0 B092 0606 		sts 1542,r11
+ 1008               	.L37:
+ 101:baksheesh.h   ****         PLayer(state);
+ 1009               		.loc 2 101 0 is_stmt 1 discriminator 2
+ 1010 03c4 C601      		movw r24,r12
+ 1011 03c6 0E94 0000 		call PLayer
+ 1012               	.LVL68:
+ 102:baksheesh.h   ****         addRc(state, r);
+ 1013               		.loc 2 102 0 discriminator 2
+ 1014 03ca B801      		movw r22,r16
+ 1015 03cc C601      		movw r24,r12
+ 1016 03ce 0E94 0000 		call addRc
+ 1017               	.LVL69:
+ 103:baksheesh.h   ****         Key_update(key);
+ 1018               		.loc 2 103 0 discriminator 2
+ 1019 03d2 C701      		movw r24,r14
+ 1020 03d4 0E94 0000 		call Key_update
+ 1021               	.LVL70:
+ 104:baksheesh.h   ****         addRk(state, key);
+ 1022               		.loc 2 104 0 discriminator 2
+ 1023 03d8 B701      		movw r22,r14
+ 1024 03da C601      		movw r24,r12
+ 1025 03dc 0E94 0000 		call addRk
+ 1026               	.LVL71:
+  97:baksheesh.h   ****       if(r==29) trigger_high();
+ 1027               		.loc 2 97 0 discriminator 2
+ 1028 03e0 0F5F      		subi r16,-1
+ 1029 03e2 1F4F      		sbci r17,-1
+ 1030               	.LVL72:
+ 1031 03e4 00C0      		rjmp .L35
+ 1032               	.L39:
+ 1033               	.LBE14:
+ 105:baksheesh.h   ****       
+ 106:baksheesh.h   ****     }
+ 107:baksheesh.h   ****     memcpy(key, key_copy, 32);
+ 1034               		.loc 2 107 0
+ 1035 03e6 80E2      		ldi r24,lo8(32)
+ 1036 03e8 FE01      		movw r30,r28
+ 1037 03ea 3196      		adiw r30,1
+ 1038 03ec D701      		movw r26,r14
+ 1039               		0:
+ 1040 03ee 0190      		ld r0,Z+
+ 1041 03f0 0D92      		st X+,r0
+ 1042 03f2 8A95      		dec r24
+ 1043 03f4 01F4      		brne 0b
+ 1044               	/* epilogue start */
+ 108:baksheesh.h   **** }
+ 1045               		.loc 2 108 0
+ 1046 03f6 A096      		adiw r28,32
+ 1047 03f8 CDBF      		out __SP_L__,r28
+ 1048 03fa DEBF      		out __SP_H__,r29
+ 1049 03fc DF91      		pop r29
+ 1050 03fe CF91      		pop r28
+ 1051 0400 1F91      		pop r17
+ 1052 0402 0F91      		pop r16
+ 1053               	.LVL73:
+ 1054 0404 FF90      		pop r15
+ 1055 0406 EF90      		pop r14
+ 1056               	.LVL74:
+ 1057 0408 DF90      		pop r13
+ 1058 040a CF90      		pop r12
+ 1059               	.LVL75:
+ 1060 040c BF90      		pop r11
+ 1061 040e 9F90      		pop r9
+ 1062 0410 8F90      		pop r8
+ 1063               	.LVL76:
+ 1064 0412 0895      		ret
+ 1065               		.cfi_endproc
+ 1066               	.LFE22:
+ 1068               	.global	get_pt
+ 1070               	get_pt:
+ 1071               	.LFB24:
+  23:main.c        ****     
+ 1072               		.loc 1 23 0
+ 1073               		.cfi_startproc
+ 1074               	.LVL77:
+ 1075               	/* prologue: function */
+ 1076               	/* frame size = 0 */
+ 1077               	/* stack size = 0 */
+ 1078               	.L__stack_usage = 0
+ 1079 0414 E0E0      		ldi r30,lo8(msg_copy)
+ 1080 0416 F0E0      		ldi r31,hi8(msg_copy)
+ 1081               	.LVL78:
+ 1082               	.L41:
+ 1083               	.LBB15:
+  26:main.c        ****     
+ 1084               		.loc 1 26 0 discriminator 3
+ 1085 0418 DC01      		movw r26,r24
+ 1086 041a 2D91      		ld r18,X+
+ 1087 041c CD01      		movw r24,r26
+ 1088               	.LVL79:
+ 1089 041e 2193      		st Z+,r18
+ 1090               	.LVL80:
+  25:main.c        ****         msg_copy[j]=pt[j];
+ 1091               		.loc 1 25 0 discriminator 3
+ 1092 0420 B0E0      		ldi r27,hi8(msg_copy+32)
+ 1093 0422 E030      		cpi r30,lo8(msg_copy+32)
+ 1094 0424 FB07      		cpc r31,r27
+ 1095 0426 01F4      		brne .L41
+ 1096 0428 E0E0      		ldi r30,lo8(key)
+ 1097 042a F0E0      		ldi r31,hi8(key)
+ 1098 042c A0E0      		ldi r26,lo8(key_copy)
+ 1099 042e B0E0      		ldi r27,hi8(key_copy)
+ 1100               	.LVL81:
+ 1101               	.L42:
+ 1102               	.LBE15:
+ 1103               	.LBB16:
+  29:main.c        ****         
+ 1104               		.loc 1 29 0 discriminator 3
+ 1105 0430 8191      		ld r24,Z+
+ 1106               	.LVL82:
+ 1107 0432 8D93      		st X+,r24
+ 1108               	.LVL83:
+  28:main.c        ****         key_copy[j]=key[j];
+ 1109               		.loc 1 28 0 discriminator 3
+ 1110 0434 20E0      		ldi r18,hi8(key+32)
+ 1111 0436 E030      		cpi r30,lo8(key+32)
+ 1112 0438 F207      		cpc r31,r18
+ 1113 043a 01F4      		brne .L42
+ 1114               	.LBE16:
+  33:main.c        **** 
+ 1115               		.loc 1 33 0
+ 1116 043c 40E0      		ldi r20,lo8(key_copy)
+ 1117 043e 50E0      		ldi r21,hi8(key_copy)
+ 1118 0440 60E0      		ldi r22,lo8(msg_copy)
+ 1119 0442 70E0      		ldi r23,hi8(msg_copy)
+ 1120 0444 83E2      		ldi r24,lo8(35)
+ 1121 0446 90E0      		ldi r25,0
+ 1122 0448 0E94 0000 		call enc
+ 1123               	.LVL84:
+  37:main.c        **** 
+ 1124               		.loc 1 37 0
+ 1125 044c 40E0      		ldi r20,lo8(msg_copy)
+ 1126 044e 50E0      		ldi r21,hi8(msg_copy)
+ 1127 0450 60E2      		ldi r22,lo8(32)
+ 1128 0452 82E7      		ldi r24,lo8(114)
+ 1129 0454 0E94 0000 		call simpleserial_put
+ 1130               	.LVL85:
+  40:main.c        **** 
+ 1131               		.loc 1 40 0
+ 1132 0458 80E0      		ldi r24,0
+ 1133 045a 0895      		ret
+ 1134               		.cfi_endproc
+ 1135               	.LFE24:
+ 1137               		.section	.text.startup,"ax",@progbits
+ 1138               	.global	main
+ 1140               	main:
+ 1141               	.LFB26:
+  47:main.c        **** 
+  48:main.c        **** int main(void)
+  49:main.c        **** {
+ 1142               		.loc 1 49 0
+ 1143               		.cfi_startproc
+ 1144               	/* prologue: function */
+ 1145               	/* frame size = 0 */
+ 1146               	/* stack size = 0 */
+ 1147               	.L__stack_usage = 0
+  50:main.c        ****     platform_init();
+ 1148               		.loc 1 50 0
+ 1149 0000 0E94 0000 		call platform_init
+ 1150               	.LVL86:
+  51:main.c        ****     init_uart();
+ 1151               		.loc 1 51 0
+ 1152 0004 0E94 0000 		call init_uart0
+ 1153               	.LVL87:
+  52:main.c        ****     trigger_setup();
+ 1154               		.loc 1 52 0
+ 1155 0008 81E0      		ldi r24,lo8(1)
+ 1156 000a 8093 0106 		sts 1537,r24
+  53:main.c        ****     
+  54:main.c        ****     
+  55:main.c        **** 	simpleserial_init();
+ 1157               		.loc 1 55 0
+ 1158 000e 0E94 0000 		call simpleserial_init
+ 1159               	.LVL88:
+  56:main.c        ****     simpleserial_addcmd('k', 16,  get_key);
+ 1160               		.loc 1 56 0
+ 1161 0012 40E0      		ldi r20,lo8(gs(get_key))
+ 1162 0014 50E0      		ldi r21,hi8(gs(get_key))
+ 1163 0016 60E1      		ldi r22,lo8(16)
+ 1164 0018 70E0      		ldi r23,0
+ 1165 001a 8BE6      		ldi r24,lo8(107)
+ 1166 001c 0E94 0000 		call simpleserial_addcmd
+ 1167               	.LVL89:
+  57:main.c        ****     simpleserial_addcmd('p', 32,  get_pt);
+ 1168               		.loc 1 57 0
+ 1169 0020 40E0      		ldi r20,lo8(gs(get_pt))
+ 1170 0022 50E0      		ldi r21,hi8(gs(get_pt))
+ 1171 0024 60E2      		ldi r22,lo8(32)
+ 1172 0026 70E0      		ldi r23,0
+ 1173 0028 80E7      		ldi r24,lo8(112)
+ 1174 002a 0E94 0000 		call simpleserial_addcmd
+ 1175               	.LVL90:
+  58:main.c        ****     simpleserial_addcmd('x',  0,   reset);
+ 1176               		.loc 1 58 0
+ 1177 002e 40E0      		ldi r20,lo8(gs(reset))
+ 1178 0030 50E0      		ldi r21,hi8(gs(reset))
+ 1179 0032 60E0      		ldi r22,0
+ 1180 0034 70E0      		ldi r23,0
+ 1181 0036 88E7      		ldi r24,lo8(120)
+ 1182 0038 0E94 0000 		call simpleserial_addcmd
+ 1183               	.LVL91:
+ 1184               	.L46:
+  59:main.c        ****     while(1)
+  60:main.c        ****         simpleserial_get();
+ 1185               		.loc 1 60 0 discriminator 1
+ 1186 003c 0E94 0000 		call simpleserial_get
+ 1187               	.LVL92:
+ 1188 0040 00C0      		rjmp .L46
+ 1189               		.cfi_endproc
+ 1190               	.LFE26:
+ 1192               		.comm	msg_copy,32,1
+ 1193               		.comm	key_copy,32,1
+ 1194               	.global	key
+ 1195               		.data
+ 1198               	key:
+ 1199 0000 00        		.byte	0
+ 1200 0001 01        		.byte	1
+ 1201 0002 02        		.byte	2
+ 1202 0003 03        		.byte	3
+ 1203 0004 04        		.byte	4
+ 1204 0005 05        		.byte	5
+ 1205 0006 06        		.byte	6
+ 1206 0007 07        		.byte	7
+ 1207 0008 08        		.byte	8
+ 1208 0009 09        		.byte	9
+ 1209 000a 0A        		.byte	10
+ 1210 000b 0B        		.byte	11
+ 1211 000c 0C        		.byte	12
+ 1212 000d 0D        		.byte	13
+ 1213 000e 0E        		.byte	14
+ 1214 000f 0F        		.byte	15
+ 1215 0010 00        		.byte	0
+ 1216 0011 01        		.byte	1
+ 1217 0012 02        		.byte	2
+ 1218 0013 03        		.byte	3
+ 1219 0014 04        		.byte	4
+ 1220 0015 05        		.byte	5
+ 1221 0016 06        		.byte	6
+ 1222 0017 07        		.byte	7
+ 1223 0018 08        		.byte	8
+ 1224 0019 09        		.byte	9
+ 1225 001a 0A        		.byte	10
+ 1226 001b 0B        		.byte	11
+ 1227 001c 0C        		.byte	12
+ 1228 001d 0D        		.byte	13
+ 1229 001e 0E        		.byte	14
+ 1230 001f 0F        		.byte	15
+ 1231               	.global	TP
+ 1232               		.section	.rodata
+ 1235               	TP:
+ 1236 0000 08        		.byte	8
+ 1237 0001 0D        		.byte	13
+ 1238 0002 13        		.byte	19
+ 1239 0003 23        		.byte	35
+ 1240 0004 43        		.byte	67
+ 1241 0005 6A        		.byte	106
+ 1242               	.global	RC
+ 1245               	RC:
+ 1246 0006 02        		.byte	2
+ 1247 0007 21        		.byte	33
+ 1248 0008 10        		.byte	16
+ 1249 0009 09        		.byte	9
+ 1250 000a 24        		.byte	36
+ 1251 000b 13        		.byte	19
+ 1252 000c 28        		.byte	40
+ 1253 000d 35        		.byte	53
+ 1254 000e 1A        		.byte	26
+ 1255 000f 0D        		.byte	13
+ 1256 0010 26        		.byte	38
+ 1257 0011 33        		.byte	51
+ 1258 0012 38        		.byte	56
+ 1259 0013 3D        		.byte	61
+ 1260 0014 3E        		.byte	62
+ 1261 0015 1F        		.byte	31
+ 1262 0016 0E        		.byte	14
+ 1263 0017 07        		.byte	7
+ 1264 0018 22        		.byte	34
+ 1265 0019 31        		.byte	49
+ 1266 001a 18        		.byte	24
+ 1267 001b 2D        		.byte	45
+ 1268 001c 36        		.byte	54
+ 1269 001d 3B        		.byte	59
+ 1270 001e 1C        		.byte	28
+ 1271 001f 2F        		.byte	47
+ 1272 0020 16        		.byte	22
+ 1273 0021 2B        		.byte	43
+ 1274 0022 14        		.byte	20
+ 1275 0023 0B        		.byte	11
+ 1276 0024 04        		.byte	4
+ 1277 0025 03        		.byte	3
+ 1278 0026 20        		.byte	32
+ 1279 0027 11        		.byte	17
+ 1280 0028 08        		.byte	8
+ 1281               	.global	invsbox
+ 1284               	invsbox:
+ 1285 0029 01        		.byte	1
+ 1286 002a 0F        		.byte	15
+ 1287 002b 0B        		.byte	11
+ 1288 002c 00        		.byte	0
+ 1289 002d 0C        		.byte	12
+ 1290 002e 05        		.byte	5
+ 1291 002f 02        		.byte	2
+ 1292 0030 0E        		.byte	14
+ 1293 0031 06        		.byte	6
+ 1294 0032 0A        		.byte	10
+ 1295 0033 0D        		.byte	13
+ 1296 0034 04        		.byte	4
+ 1297 0035 08        		.byte	8
+ 1298 0036 03        		.byte	3
+ 1299 0037 07        		.byte	7
+ 1300 0038 09        		.byte	9
+ 1301               	.global	sbox
+ 1304               	sbox:
+ 1305 0039 03        		.byte	3
+ 1306 003a 00        		.byte	0
+ 1307 003b 06        		.byte	6
+ 1308 003c 0D        		.byte	13
+ 1309 003d 0B        		.byte	11
+ 1310 003e 05        		.byte	5
+ 1311 003f 08        		.byte	8
+ 1312 0040 0E        		.byte	14
+ 1313 0041 0C        		.byte	12
+ 1314 0042 0F        		.byte	15
+ 1315 0043 09        		.byte	9
+ 1316 0044 02        		.byte	2
+ 1317 0045 04        		.byte	4
+ 1318 0046 0A        		.byte	10
+ 1319 0047 07        		.byte	7
+ 1320 0048 01        		.byte	1
+ 1321               		.text
+ 1322               	.Letext0:
+ 1323               		.file 3 "/usr/lib/avr/include/stdint.h"
+ 1324               		.file 4 "/usr/lib/avr/include/avr/iox128d3.h"
+ 1325               		.file 5 "/usr/lib/avr/include/stdio.h"
+ 1326               		.file 6 "dependencies/simpleserial/simpleserial.h"
+ 1327               		.file 7 "dependencies/hal/hal.h"
+ 1328               		.file 8 "dependencies/hal/xmega/uart.h"
+ 1329               		.file 9 "<built-in>"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccx3yTs7.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccx3yTs7.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccx3yTs7.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccx3yTs7.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccx3yTs7.s:6      *ABS*:0000000000000034 __CCP__
+     /tmp/ccx3yTs7.s:7      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccx3yTs7.s:8      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccx3yTs7.s:14     .text:0000000000000000 reset
+     /tmp/ccx3yTs7.s:33     .text:0000000000000004 get_key
+     /tmp/ccx3yTs7.s:51     .text:0000000000000008 Display_state_nibble
+     /tmp/ccx3yTs7.s:147    .text:0000000000000052 Display_state_bit
+     /tmp/ccx3yTs7.s:296    .text:00000000000000de to_bits
+     /tmp/ccx3yTs7.s:370    .text:0000000000000120 from_bits
+     /tmp/ccx3yTs7.s:427    .text:000000000000015e SBox
+     /tmp/ccx3yTs7.s:1304   .rodata:0000000000000039 sbox
+     /tmp/ccx3yTs7.s:463    .text:0000000000000176 genPerm
+     /tmp/ccx3yTs7.s:520    .text:00000000000001c2 PLayer
+     /tmp/ccx3yTs7.s:638    .text:000000000000023e addRc
+     /tmp/ccx3yTs7.s:1245   .rodata:0000000000000006 RC
+     /tmp/ccx3yTs7.s:769    .text:00000000000002e2 addRk
+     /tmp/ccx3yTs7.s:806    .text:00000000000002fe Key_update
+     /tmp/ccx3yTs7.s:896    .text:000000000000035e enc
+     /tmp/ccx3yTs7.s:1070   .text:0000000000000414 get_pt
+                            *COM*:0000000000000020 msg_copy
+     /tmp/ccx3yTs7.s:1198   .data:0000000000000000 key
+                            *COM*:0000000000000020 key_copy
+     /tmp/ccx3yTs7.s:1140   .text.startup:0000000000000000 main
+     /tmp/ccx3yTs7.s:1235   .rodata:0000000000000000 TP
+     /tmp/ccx3yTs7.s:1284   .rodata:0000000000000029 invsbox
+
+UNDEFINED SYMBOLS
+printf
+putchar
+simpleserial_put
+platform_init
+init_uart0
+simpleserial_init
+simpleserial_addcmd
+simpleserial_get
+__do_copy_data
+__do_clear_bss
