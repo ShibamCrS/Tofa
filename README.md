@@ -1,6 +1,6 @@
 ---
 
-Title: "**ToFA**: Towards Fault Analysis of GIFT and GIFT-like Ciphers Leveraging Truncated Impossible Differentials"
+Title: "ToFA: Towards Fault Analysis of GIFT and GIFT-like Ciphers Leveraging Truncated Impossible Differentials"
 Implementation: Shibam Ghosh and Aikata Aikata and Anup Kumar Kundu
 Published At: "Transactions on Cryptographic Hardware and Embedded Systems (CHES) Volume 2025 Issue 3"
 Full Version:  " https://eprint.iacr.org/2024/1927 "
