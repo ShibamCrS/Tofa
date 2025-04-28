@@ -53,11 +53,14 @@ The following two commands are sufficient to build the necessary dependencies, i
 
 Hardware: The GIFT-128 packed implementation is run on 8-bit Harvard architecture-based microcontroller ATXmega128D4-AU on the ChipWhisperer-Lite (CW1173) evaluation board (https://rtfm.newae.com/Targets/CW303\%20XMEGA/). 
 
-> ToolChain: To mount the attack on the device, we use the ChipWhisperer open-source toolchain. Please ensure this toolchain is set up before proceeding with the attack. The folder `Setup_Scripts` and the `TOFA` folder pertain to this toolchain's requirements. The contents of the TOFA folder build the necessary `.hex` files required for programming the microcontroller. To do this, run a 'make' command in the TOFA folder.
+### ToolChain 
+To mount the attack on the device, we use the ChipWhisperer open-source toolchain. Please ensure this toolchain is set up before proceeding with the attack. The folder `Setup_Scripts` and the `TOFA` folder pertain to this toolchain's requirements. The contents of the TOFA folder build the necessary `.hex` files required for programming the microcontroller. To do this, run a 'make' command in the TOFA folder.
 
-Fault Injection: The script used to induce the fault is `TOFA_FA.ipynb`. This Jupyter Notebook runs the GIFT128 encryption and injects faults via clock glitching. It can be opened and run to see how this is done. Note that the script will only run in the presence of the hardware (CW1173). 
+### Fault Injection 
+The script used to induce the fault is `TOFA_FA.ipynb`. This Jupyter Notebook runs the GIFT128 encryption and injects faults via clock glitching. It can be opened and run to see how this is done. Note that the script will only run in the presence of the hardware (CW1173). 
 
-Key-Recovery: The Jupyter Notebook- `TOFA_FA.ipynb` is called via Python script- attack.py. This Python file collects the faulty and correct ciphertexts and returns the number of keys recovered. In the parameters set, a unique key is obtained. The parameters within this file responsible for the number of faults `num\_faults` can be modified to see how the key recovery works for fewer faults.
+### Key-Recovery 
+The Jupyter Notebook- `TOFA_FA.ipynb` is called via Python script- attack.py. This Python file collects the faulty and correct ciphertexts and returns the number of keys recovered. In the parameters set, a unique key is obtained. The parameters within this file responsible for the number of faults `num\_faults` can be modified to see how the key recovery works for fewer faults.
 
 # COUNTERMEASURE
 
