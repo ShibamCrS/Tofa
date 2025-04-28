@@ -47,7 +47,8 @@ For the simulated key recoveries, C C++ compilers and interpreters are sufficien
 # HOW TO INDUCE THE FAULTS AND PERFORM KEY RECOVERY?
 The following two commands are sufficient to build the necessary dependencies, induce faults, and perform final key recovery in the `Tofa/gift128` folder.
 
-> $ python setup.py build_ext --inplace 
+> $ python setup.py build_ext --inplace
+> 
 > $ python3 attack.py
 
 
