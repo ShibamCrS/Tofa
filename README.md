@@ -70,7 +70,7 @@ We provide a duplication-based countermeasure implementation of GIFT128 for the 
 
 ## License
 
-TOFA is licensed under the terms of the GNU GENERAL PUBLIC LICENSE Version 3. See [LICENSE](LICENSE) for more details.
+TOFA is licensed under the BSD 2-Clause License. See [LICENSE](LICENSE) for more details.
 
 <br />
 <br />
