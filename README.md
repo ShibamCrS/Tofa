@@ -40,7 +40,7 @@ We use the ChipWhisperer-Lite  CW1173  evaluation board, as shown below. It has 
 
 We use the ChipWhisperer open-source toolchain (https://github.com/newaetech/chipwhisperer). Hence, this toolchain must be installed to replicate the attacks on the hardware utilized in this work.
 
-For the simulated key recoveries, C C++ compilers and interpreters are sufficient.
+For the simulated key recoveries, C/C++ compilers and interpreters are sufficient.
 
 
 
