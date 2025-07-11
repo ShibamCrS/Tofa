@@ -97,11 +97,13 @@ void enc(int rounds, uint8_t *state, uint8_t *key){
     for(int r=0; r<rounds; r++){
         if(r==35) trigger_high();
         SBox(state);
+        if(r==35) trigger_low();
         PLayer(state);
         rconst = updateConst(rconst);
         addRc(state, rconst);
         addRk(state, key);
         Key_update(key);
-        if(r==35) trigger_low();
+        
+        
     }
 }

@@ -588,15 +588,15 @@ END GROUP
  .debug_abbrev  0x000000000000260f      0x24a objdir/usart_driver.o
  .debug_abbrev  0x0000000000002859       0xc9 objdir/xmega_hal.o
 
-.debug_line     0x0000000000000000      0xc8c
+.debug_line     0x0000000000000000      0xc9a
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000       0x1a /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
- .debug_line    0x000000000000001a      0x409 objdir/./main.o
- .debug_line    0x0000000000000423      0x385 objdir/simpleserial.o
- .debug_line    0x00000000000007a8        0x0 objdir/XMEGA_AES_driver.o
- .debug_line    0x00000000000007a8      0x15e objdir/uart.o
- .debug_line    0x0000000000000906      0x283 objdir/usart_driver.o
- .debug_line    0x0000000000000b89      0x103 objdir/xmega_hal.o
+ .debug_line    0x000000000000001a      0x417 objdir/./main.o
+ .debug_line    0x0000000000000431      0x385 objdir/simpleserial.o
+ .debug_line    0x00000000000007b6        0x0 objdir/XMEGA_AES_driver.o
+ .debug_line    0x00000000000007b6      0x15e objdir/uart.o
+ .debug_line    0x0000000000000914      0x283 objdir/usart_driver.o
+ .debug_line    0x0000000000000b97      0x103 objdir/xmega_hal.o
 
 .debug_frame    0x0000000000000000      0x474
  *(.debug_frame)

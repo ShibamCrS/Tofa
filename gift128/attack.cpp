@@ -20,7 +20,7 @@ int EXP = 16;
 /* #define CYTHON 1 */
 
 #if NOCYTHON == 1
-#define PRINT
+#define PRINT 
 #endif
 
 void addRk1(uint8_t *state, uint8_t *key){
@@ -65,21 +65,18 @@ int attack(uint8_t cips[], uint8_t fcips[], uint8_t key[], int noEXP){
         inv_master_key_schedule(k39, k38, k0);
         if(memcmp(k0, key, 32) == 0) {
             success = 1;
-#ifdef PRINT
-            printf("Match \n");
-            cout << "Original Master Key: ";
+            printf("Match \n");setvbuf(stdout, NULL, _IONBF, 0); 
+            cout << "Original Master Key: " << endl;
             printreg(key, 32);
-            cout << "Found Master Key:    ";
+            cout << "Found Master Key:    "<< endl;
             printreg(k0, 32);
-#endif
         }
     }
 
-#ifdef PRINT
 cout << "\n Number of faults " << EXP << " Number of threads " <<
         THREAD << " Remaining Keys " << keys38.size() << endl;
         printf("Elapsed time : %lld mss %lld s\n", time_meter, time_meter / 1000LL);
-#endif
+
     //if the original key is in the sugested key list, we say a success. In that case we return
     //the number of remaining keys. Otherwise, we return -1
     if(success == 1) {

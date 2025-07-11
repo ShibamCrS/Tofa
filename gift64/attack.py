@@ -3,7 +3,7 @@ import numpy as np
 from json import load
 
 
-num_fauts=22
+num_fauts=30
 
 
 def testAttack():
@@ -23,7 +23,7 @@ def attack(orcips, orfcips, key):
     cips = np.asarray(orcips, dtype=np.uint64)
     fcips = np.asarray(orfcips, dtype=np.uint64)
     remainingKeys = KeyRecovery(cips, fcips, key, EXP)
-    print("Remaining Keys ", remainingKeys)
+    #print("Remaining Keys ", remainingKeys)
 
 if __name__ == '__main__':
     

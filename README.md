@@ -51,11 +51,13 @@ The following two commands are sufficient to build the necessary dependencies, i
 > 
 > $ python3 attack.py
 
+Each folder contains `Tofa/gift<128/64>/sample_output.txt` file to give an impression of what the output must look like. Overall, it tells whether the original key was found or not. Sometimes this can be unique, other times, it is present in a small set of possible keys. `-1` implies that the key could not be found. If this is the case, then the glitch setup must be revised. This involves varying the following glitch parameters in `Tofa/gift<128/64>/TOFA_FA.ipynb` file: 1) `scope.glitch.repeat`, 2) `scope.glitch.width`, and 3) `scope.glitch.offset`. We obtained these experimentally by checking how many faults it initially induces.
+
 
 Hardware: The GIFT-128 packed implementation is run on 8-bit Harvard architecture-based microcontroller ATXmega128D4-AU on the ChipWhisperer-Lite (CW1173) evaluation board (https://rtfm.newae.com/Targets/CW303\%20XMEGA/). 
 
 ### ToolChain 
-To mount the attack on the device, we use the ChipWhisperer open-source toolchain. Please ensure this toolchain is set up before proceeding with the attack. The folder `Setup_Scripts` and the `TOFA` folder pertain to this toolchain's requirements. The contents of the TOFA folder build the necessary `.hex` files required for programming the microcontroller. To do this, run a 'make' command in the TOFA folder.
+To mount the attack on the device, we use the ChipWhisperer open-source toolchain. Please ensure this toolchain is set up before proceeding with the attack. We use `Python 3.12.3` for our experiments. The folder `Setup_Scripts` and the `TOFA` folder pertain to this toolchain's requirements. Installing Chipwhisperer (preferably using the open-source git toolchain) and the ./requirements.txt file is sufficient. The contents of the TOFA folder build the necessary `.hex` files required for programming the microcontroller. To do this, run a 'make' command in the TOFA folder.
 
 ### Fault Injection 
 The script used to induce the fault is `TOFA_FA.ipynb`. This Jupyter Notebook runs the GIFT64/128 encryption and injects faults via clock glitching. It can be opened and run to see how this is done. Note that the script will only run in the presence of the hardware (CW1173). 

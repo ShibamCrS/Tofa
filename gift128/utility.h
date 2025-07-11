@@ -6,16 +6,16 @@
 
 uint64_t SEED[4];
 
-void printreg_to_file(const void *a, int nrof_byte, FILE *fp){
+void printreg_to_file(const void *a, int nrof_byte){
     int i;
     unsigned char *f = (unsigned char *)a;
     for(i=0; i < nrof_byte; i++){
-        fprintf(fp, "%X ",(unsigned char) f[nrof_byte - 1 - i]); //uint8_t c[4+8];
+        printf("%X ",(unsigned char) f[nrof_byte - 1 - i]); //uint8_t c[4+8];
     }
-    fprintf(fp, "\n");
+    printf("\n");
 }
 void printreg(const void *a, int nrof_byte){
-    printreg_to_file(a, nrof_byte, stdout);
+    printreg_to_file(a, nrof_byte);
 }
 
 void print_list(uint8_t *a, int size_of_list, int size_of_el){

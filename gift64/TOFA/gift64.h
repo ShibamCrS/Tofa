@@ -52,6 +52,8 @@ void enc64(uint8_t* input, uint8_t* masterkey, int no_of_rounds, bool print_deta
         for (uint8_t i=0; i<16; i++){
             input[i] = GIFT_S[input[i]];
         }
+    if(r==23) trigger_low();
+    //break;
 
         //PermBits
         //input to bits
@@ -71,7 +73,7 @@ void enc64(uint8_t* input, uint8_t* masterkey, int no_of_rounds, bool print_deta
                  input[i] ^= perm_bits[4*i+j] << j;
             }
         }
-         if(r==23) trigger_low();
+         
 
         //AddRoundKey
         //input to bits

@@ -19,15 +19,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00002922  00000000  00000000  00004da2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000c8c  00000000  00000000  000076c4  2**0
+  8 .debug_line   00000c9a  00000000  00000000  000076c4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000474  00000000  00000000  00008350  2**2
+  9 .debug_frame  00000474  00000000  00000000  00008360  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001f62  00000000  00000000  000087c4  2**0
+ 10 .debug_str    00001f62  00000000  00000000  000087d4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000131b  00000000  00000000  0000a726  2**0
+ 11 .debug_loc    0000131b  00000000  00000000  0000a736  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000098  00000000  00000000  0000ba41  2**0
+ 12 .debug_ranges 00000098  00000000  00000000  0000ba51  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -848,10 +848,10 @@ void enc(int rounds, uint8_t *state, uint8_t *key){
  5c8:	ca 15       	cp	r28, r10
  5ca:	db 05       	cpc	r29, r11
  5cc:	5c f0       	brlt	.+22     	; 0x5e4 <enc+0x40>
-        addRc(state, rconst);
         addRk(state, key);
         Key_update(key);
-        if(r==35) trigger_low();
+        
+        
     }
 }
  5ce:	df 91       	pop	r29
@@ -878,29 +878,32 @@ void enc(int rounds, uint8_t *state, uint8_t *key){
         SBox(state);
  5ee:	c8 01       	movw	r24, r16
  5f0:	0e 94 55 01 	call	0x2aa	; 0x2aa <SBox>
+        if(r==35) {
+ 5f4:	c3 32       	cpi	r28, 0x23	; 35
+ 5f6:	d1 05       	cpc	r29, r1
+ 5f8:	11 f4       	brne	.+4      	; 0x5fe <enc+0x5a>
+            trigger_low();
+ 5fa:	e0 92 06 06 	sts	0x0606, r14	; 0x800606 <__TEXT_REGION_LENGTH__+0x7de606>
+            //break;
+        }
         PLayer(state);
- 5f4:	c8 01       	movw	r24, r16
- 5f6:	0e 94 8b 01 	call	0x316	; 0x316 <PLayer>
+ 5fe:	c8 01       	movw	r24, r16
+ 600:	0e 94 8b 01 	call	0x316	; 0x316 <PLayer>
         rconst = updateConst(rconst);
- 5fa:	8f 2d       	mov	r24, r15
- 5fc:	0e 94 c5 02 	call	0x58a	; 0x58a <updateConst>
- 600:	f8 2e       	mov	r15, r24
+ 604:	8f 2d       	mov	r24, r15
+ 606:	0e 94 c5 02 	call	0x58a	; 0x58a <updateConst>
+ 60a:	f8 2e       	mov	r15, r24
         addRc(state, rconst);
- 602:	68 2f       	mov	r22, r24
- 604:	c8 01       	movw	r24, r16
- 606:	0e 94 75 02 	call	0x4ea	; 0x4ea <addRc>
+ 60c:	68 2f       	mov	r22, r24
+ 60e:	c8 01       	movw	r24, r16
+ 610:	0e 94 75 02 	call	0x4ea	; 0x4ea <addRc>
         addRk(state, key);
- 60a:	b6 01       	movw	r22, r12
- 60c:	c8 01       	movw	r24, r16
- 60e:	0e 94 3b 02 	call	0x476	; 0x476 <addRk>
+ 614:	b6 01       	movw	r22, r12
+ 616:	c8 01       	movw	r24, r16
+ 618:	0e 94 3b 02 	call	0x476	; 0x476 <addRk>
         Key_update(key);
- 612:	c6 01       	movw	r24, r12
- 614:	0e 94 c9 01 	call	0x392	; 0x392 <Key_update>
-        if(r==35) trigger_low();
- 618:	c3 32       	cpi	r28, 0x23	; 35
- 61a:	d1 05       	cpc	r29, r1
- 61c:	11 f4       	brne	.+4      	; 0x622 <enc+0x7e>
- 61e:	e0 92 06 06 	sts	0x0606, r14	; 0x800606 <__TEXT_REGION_LENGTH__+0x7de606>
+ 61c:	c6 01       	movw	r24, r12
+ 61e:	0e 94 c9 01 	call	0x392	; 0x392 <Key_update>
 uint8_t updateConst(uint8_t cc){
     return ((cc << 1) ^ ( ((cc >> 5) & 0x01) ^ ((cc >> 4) & 0x01) ^ 1) );
 }

@@ -76,21 +76,31 @@
   42               		.loc 1 35 0
   43 0024 88E0      		ldi r24,lo8(8)
   44 0026 8093 5000 		sts 80,r24
-  45 002a 0895      		ret
-  46               		.cfi_endproc
-  47               	.LFE11:
-  49               	.Letext0:
-  50               		.file 2 "/usr/lib/avr/include/stdint.h"
-  51               		.file 3 "/usr/lib/avr/include/avr/iox128d3.h"
+  45               	/* epilogue start */
+  36:dependencies/hal/xmega/xmega_hal.c ****     
+  37:dependencies/hal/xmega/xmega_hal.c ****  #if PLATFORM == CW303
+  38:dependencies/hal/xmega/xmega_hal.c ****     PORTA.DIRSET = PIN5_bm | PIN6_bm;
+  39:dependencies/hal/xmega/xmega_hal.c ****     PORTA.OUTSET = PIN5_bm | PIN6_bm;
+  40:dependencies/hal/xmega/xmega_hal.c ****  #endif
+  41:dependencies/hal/xmega/xmega_hal.c **** }
+  46               		.loc 1 41 0
+  47 002a 0895      		ret
+  48               		.cfi_endproc
+  49               	.LFE11:
+  51               	.Letext0:
+  52               		.file 2 "/usr/lib/avr/include/stdint.h"
+  53               		.file 3 "/usr/lib/avr/include/avr/iox128d3.h"
+  54               		.file 4 "/usr/lib/gcc/avr/7.3.0/include/stddef.h"
+  55               		.file 5 "/usr/lib/avr/include/stdlib.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 xmega_hal.c
-     /tmp/cctOUhCm.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cctOUhCm.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cctOUhCm.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cctOUhCm.s:5      *ABS*:000000000000003b __RAMPZ__
-     /tmp/cctOUhCm.s:6      *ABS*:0000000000000034 __CCP__
-     /tmp/cctOUhCm.s:7      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cctOUhCm.s:8      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cctOUhCm.s:14     .text:0000000000000000 platform_init
+     /tmp/ccuwD0AQ.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccuwD0AQ.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccuwD0AQ.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccuwD0AQ.s:5      *ABS*:000000000000003b __RAMPZ__
+     /tmp/ccuwD0AQ.s:6      *ABS*:0000000000000034 __CCP__
+     /tmp/ccuwD0AQ.s:7      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccuwD0AQ.s:8      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccuwD0AQ.s:14     .text:0000000000000000 platform_init
 
 NO UNDEFINED SYMBOLS

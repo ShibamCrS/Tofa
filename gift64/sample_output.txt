@@ -1,0 +1,1328 @@
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 7446141                   to 29791133                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 0                         to 29538459                 
+scope.clock.adc_rate                     changed from 0.0                       to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x9  0x9  0x6  0xe  0x2  0xe  0xe  0x2  0x0  0x6  0x0  0x7  0x1  0x2  0xf  0x6  
+clk_src     = clkgen
+mmcm_locked = True
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6143853                   to 17543960                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 18514595                  to 29538459                 
+scope.clock.adc_rate                     changed from 18514595.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xe  0x5  0x2  0xf  0x8  0xc  0xd  0x9  0xe  0x1  0xf  0x0  0xa  0xa  0x8  0x6  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5900294                   to 17129931                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 28996799                  to 29538459                 
+scope.clock.adc_rate                     changed from 28996799.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x1  0x5  0xf  0x5  0xe  0xf  0xe  0xc  0x3  0x1  0xa  0xa  0x1  0xf  0x9  0x8  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6372426                   to 17920245                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 8015682                   to 29538459                 
+scope.clock.adc_rate                     changed from 8015682.0                 to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x2  0xe  0xc  0xc  0x9  0x8  0x8  0x9  0x0  0xd  0xe  0x0  0x7  0x4  0x4  0xf  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5885232                   to 17086985                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 7876132                   to 29538471                 
+scope.clock.adc_rate                     changed from 7876132.0                 to 29538471.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x7  0x2  0xc  0xf  0xb  0x6  0x2  0xc  0x3  0x4  0xa  0x0  0x9  0xf  0xb  0x1  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6306258                   to 17537306                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 425056                    to 29538459                 
+scope.clock.adc_rate                     changed from 425056.0                  to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xa  0x9  0x1  0x2  0xf  0xa  0xa  0xb  0x6  0xe  0x9  0x2  0xa  0x1  0x8  0x6  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.state                          changed from False                     to True                     
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6112009                   to 25146443                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 29232170                  to 29538459                 
+scope.clock.adc_rate                     changed from 29232170.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 1, 1)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xe  0x9  0xc  0xd  0x0  0x1  0xa  0xb  0x4  0x1  0x4  0xe  0x1  0xd  0x2  0xd  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6130759                   to 17364891                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x9  0xd  0x8  0x2  0x2  0xb  0x3  0xa  0x8  0x6  0xf  0x8  0x0  0x3  0x9  0x7  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5948938                   to 17042191                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 24717498                  to 29538459                 
+scope.clock.adc_rate                     changed from 24717498.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x0  0x3  0x0  0x0  0x2  0x2  0xa  0xe  0xf  0x5  0x9  0x1  0x6  0xf  0xa  0xc  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 10265430                  to 21295646                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 7264137                   to 29538459                 
+scope.clock.adc_rate                     changed from 7264137.0                 to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x2  0x3  0x1  0xf  0x0  0xa  0xd  0x0  0xb  0xf  0xa  0x3  0x2  0xc  0xc  0x2  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+False
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6279084                   to 17500152                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xd  0x9  0x1  0xd  0x8  0x5  0xb  0x2  0x7  0x3  0x1  0x5  0x4  0xf  0x6  0xd  
+clk_src     = clkgen
+mmcm_locked = True
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5976371                   to 17091333                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 8717250                   to 29538459                 
+scope.clock.adc_rate                     changed from 8717250.0                 to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x6  0xd  0x7  0xa  0x9  0x5  0x3  0x2  0x6  0x1  0x9  0x2  0x7  0xc  0xd  0x9  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6263616                   to 17543435                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 29538471                  to 29538459                 
+scope.clock.adc_rate                     changed from 29538471.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xd  0xf  0xb  0xc  0xb  0x7  0x0  0x5  0x1  0xc  0x1  0x1  0x7  0xf  0xb  0x4  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5930119                   to 17151154                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 1327560                   to 29538459                 
+scope.clock.adc_rate                     changed from 1327560.0                 to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xf  0xf  0xa  0x6  0x0  0x2  0x3  0x7  0x4  0xc  0x6  0xd  0xa  0x4  0xd  0x6  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6061187                   to 17046408                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x0  0xd  0xf  0x2  0x2  0xb  0x2  0x1  0x2  0x7  0x7  0x9  0x1  0x3  0xc  0x8  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6069619                   to 17517342                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 24371223                  to 29538459                 
+scope.clock.adc_rate                     changed from 24371223.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xe  0x1  0xc  0x8  0x4  0xa  0xa  0x5  0xb  0xc  0x4  0x9  0x0  0x1  0x3  0xb  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+False
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6232246                   to 17315736                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x9  0x9  0x6  0xe  0x2  0xe  0xe  0x2  0x0  0x6  0x0  0x7  0x1  0x2  0xf  0x6  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6132509                   to 17293503                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 11244552                  to 29538459                 
+scope.clock.adc_rate                     changed from 11244552.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xe  0x5  0x2  0xf  0x8  0xc  0xd  0x9  0xe  0x1  0xf  0x0  0xa  0xa  0x8  0x6  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5858157                   to 17228703                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 29538459                  to 29538471                 
+scope.clock.adc_rate                     changed from 29538459.0                to 29538471.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x1  0x5  0xf  0x5  0xe  0xf  0xe  0xc  0x3  0x1  0xa  0xa  0x1  0xf  0x9  0x8  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+False
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6028486                   to 17526800                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 4876739                   to 29538459                 
+scope.clock.adc_rate                     changed from 4876739.0                 to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x2  0xe  0xc  0xc  0x9  0x8  0x8  0x9  0x0  0xd  0xe  0x0  0x7  0x4  0x4  0xf  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5713302                   to 16827862                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x7  0x2  0xc  0xf  0xb  0x6  0x2  0xc  0x3  0x4  0xa  0x0  0x9  0xf  0xb  0x1  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6459112                   to 17547213                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 2796077                   to 29538459                 
+scope.clock.adc_rate                     changed from 2796077.0                 to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xa  0x9  0x1  0x2  0xf  0xa  0xa  0xb  0x6  0xe  0x9  0x2  0xa  0x1  0x8  0x6  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+False
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5945819                   to 17182986                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 18434474                  to 29538459                 
+scope.clock.adc_rate                     changed from 18434474.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xe  0x9  0xc  0xd  0x0  0x1  0xa  0xb  0x4  0x1  0x4  0xe  0x1  0xd  0x2  0xd  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6513722                   to 17852611                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 18040729                  to 29538459                 
+scope.clock.adc_rate                     changed from 18040729.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x9  0xd  0x8  0x2  0x2  0xb  0x3  0xa  0x8  0x6  0xf  0x8  0x0  0x3  0x9  0x7  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6414748                   to 17738027                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 9080051                   to 29538459                 
+scope.clock.adc_rate                     changed from 9080051.0                 to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x0  0x3  0x0  0x0  0x2  0x2  0xa  0xe  0xf  0x5  0x9  0x1  0x6  0xf  0xa  0xc  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+False
+True
+True
+Glitched at 16
+Number of Different Bytes : 14
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.state                          changed from False                     to True                     
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5807193                   to 24261983                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 7330707                   to 29538459                 
+scope.clock.adc_rate                     changed from 7330707.0                 to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 1)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x2  0x3  0x1  0xf  0x0  0xa  0xd  0x0  0xb  0xf  0xa  0x3  0x2  0xc  0xc  0x2  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6245654                   to 17171743                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xd  0x9  0x1  0xd  0x8  0x5  0xb  0x2  0x7  0x3  0x1  0x5  0x4  0xf  0x6  0xd  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+False
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 5754624                   to 16499707                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0x6  0xd  0x7  0xa  0x9  0x5  0x3  0x2  0x6  0x1  0x9  0x2  0x7  0xc  0xd  0x9  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+False
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 10897466                  to 22110319                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 17228267                  to 29539272                 
+scope.clock.adc_rate                     changed from 17228267.0                to 29539272.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xd  0xf  0xb  0xc  0xb  0x7  0x0  0x5  0x1  0xc  0x1  0x1  0x7  0xf  0xb  0x4  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 15
+INFO: Found ChipWhisperer😍
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+
+ Number of faults 30 Number of threads 8 Remaining Keys 0
+Elapsed time : 61 mss 0 s
+Match: the original key is present in the keys set 
+
+ Number of faults 30 Number of threads 8 Remaining Keys 3
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6039289                   to 17577838                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 28686779                  to 29538459                 
+scope.clock.adc_rate                     changed from 28686779.0                to 29538459.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (1, 1, 0, 0)             
+scope.glitch.mmcm_locked                 changed from True                      to False                    
+XMEGA Programming flash...
+XMEGA Reading flash...
+Verified flash OK, 3533 bytes
+0xf  0xf  0xa  0x6  0x0  0x2  0x3  0x7  0x4  0xc  0x6  0xd  0xa  0x4  0xd  0x6  
+clk_src     = clkgen
+mmcm_locked = False
+width       = 2.734375
+width_fine  = 0
+offset      = 3.125
+offset_fine = 0
+trigger_src = ext_single
+arm_timing  = after_scope
+ext_offset  = 0
+repeat      = 1
+output      = clock_xor
+
+WE START
+  0%|          | 0/10 [00:00<?, ?it/s]
+True
+False
+False
+False
+True
+True
+True
+Glitched at 16
+Number of Different Bytes : 16
+30 30
+[15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+
+
+Key Recovery Starts now----------
+ Number of faults 30 Number of threads 8 Remaining Keys 0
+Elapsed time : 64 mss 0 s
+[7098857543332096183 2652269627977145979]
+Match: the original key is present in the keys set 
+
+ Number of faults 30 Number of threads 8 Remaining Keys 1
+Elapsed time : 62 mss 0 s
+Remaining Keys  1
+

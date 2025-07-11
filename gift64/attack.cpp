@@ -11,10 +11,6 @@
 
 using namespace std;
 
-#if NOCYTHON == 1
-#define PRINT
-#endif
-
 int EXP = 8;
 #define ROUNDS 28
 #define FROUND 24
@@ -82,16 +78,12 @@ int attack(uint64_t cips[], uint64_t fcips[], uint64_t key[2], int noEXP){
     }
     if((flag25 == 1) && (flag26 == 1) && (flag27 == 1)) {
             success = 1;
-#ifdef PRINT
-            printf("Match \n");
-#endif
+            printf("Match: the original key is present in the keys set \n");
     }
-#ifdef PRINT
-            cout << flag25 <<" " << flag26 << " " << flag27 << endl;
+           // cout << flag25 <<" " << flag26 << " " << flag27 << endl;
 cout << "\n Number of faults " << EXP << " Number of threads " <<
         THREAD << " Remaining Keys " << rem << endl;
         printf("Elapsed time : %lld mss %lld s\n", time_meter, time_meter / 1000LL);
-#endif
     //if the original key is in the sugested key list, we say a success. In that case we return
     //the number of remaining keys. Otherwise, we return -1
     if(success == 1) {

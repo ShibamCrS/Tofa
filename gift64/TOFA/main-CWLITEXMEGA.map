@@ -141,7 +141,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0xcbe
+.text           0x0000000000000000      0xcc0
  *(.vectors)
  .vectors       0x0000000000000000      0x1c8 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
                 0x0000000000000000                __vectors
@@ -314,92 +314,92 @@ END GROUP
                 0x0000000000000222                __vector_42
                 0x0000000000000222                __vector_87
                 0x0000000000000222                __vector_65
- .text          0x0000000000000226      0x4c8 objdir/./main.o
+ .text          0x0000000000000226      0x4ca objdir/./main.o
                 0x0000000000000226                get_key
                 0x000000000000022a                reset
                 0x000000000000022e                enc64
-                0x000000000000069a                get_pt
- .text          0x00000000000006ee      0x3bc objdir/simpleserial.o
-                0x00000000000006ee                check_version
-                0x00000000000006f2                ss_crc
-                0x000000000000071c                hex_decode
-                0x00000000000007a2                simpleserial_addcmd_flags
-                0x00000000000007e8                simpleserial_addcmd
-                0x00000000000007ee                simpleserial_init
-                0x0000000000000818                simpleserial_put
-                0x0000000000000876                ss_num_commands
-                0x000000000000089e                ss_get_commands
-                0x0000000000000924                simpleserial_get
- .text          0x0000000000000aaa        0x0 objdir/XMEGA_AES_driver.o
- .text          0x0000000000000aaa       0x88 objdir/uart.o
-                0x0000000000000aaa                init_uart0
-                0x0000000000000ad2                input_ch_w_timeout_0
-                0x0000000000000b16                input_ch_0
-                0x0000000000000b24                output_ch_0
- .text          0x0000000000000b32      0x11a objdir/usart_driver.o
-                0x0000000000000b32                USART_InterruptDriver_Initialize
-                0x0000000000000b44                USART_InterruptDriver_DreInterruptLevel_Set
-                0x0000000000000b4a                USART_TXBuffer_FreeSpace
-                0x0000000000000b5e                USART_TXBuffer_PutByte
-                0x0000000000000b96                USART_RXBufferData_Available
-                0x0000000000000ba6                USART_RXBuffer_GetByte
-                0x0000000000000bbe                USART_RXComplete
-                0x0000000000000be8                USART_DataRegEmpty
-                0x0000000000000c22                USART_NineBits_PutChar
-                0x0000000000000c36                USART_NineBits_GetChar
- .text          0x0000000000000c4c       0x2c objdir/xmega_hal.o
-                0x0000000000000c4c                platform_init
- .text          0x0000000000000c78        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
- .text          0x0000000000000c78        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
- .text          0x0000000000000c78        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
-                0x0000000000000c78                . = ALIGN (0x2)
+                0x000000000000069c                get_pt
+ .text          0x00000000000006f0      0x3bc objdir/simpleserial.o
+                0x00000000000006f0                check_version
+                0x00000000000006f4                ss_crc
+                0x000000000000071e                hex_decode
+                0x00000000000007a4                simpleserial_addcmd_flags
+                0x00000000000007ea                simpleserial_addcmd
+                0x00000000000007f0                simpleserial_init
+                0x000000000000081a                simpleserial_put
+                0x0000000000000878                ss_num_commands
+                0x00000000000008a0                ss_get_commands
+                0x0000000000000926                simpleserial_get
+ .text          0x0000000000000aac        0x0 objdir/XMEGA_AES_driver.o
+ .text          0x0000000000000aac       0x88 objdir/uart.o
+                0x0000000000000aac                init_uart0
+                0x0000000000000ad4                input_ch_w_timeout_0
+                0x0000000000000b18                input_ch_0
+                0x0000000000000b26                output_ch_0
+ .text          0x0000000000000b34      0x11a objdir/usart_driver.o
+                0x0000000000000b34                USART_InterruptDriver_Initialize
+                0x0000000000000b46                USART_InterruptDriver_DreInterruptLevel_Set
+                0x0000000000000b4c                USART_TXBuffer_FreeSpace
+                0x0000000000000b60                USART_TXBuffer_PutByte
+                0x0000000000000b98                USART_RXBufferData_Available
+                0x0000000000000ba8                USART_RXBuffer_GetByte
+                0x0000000000000bc0                USART_RXComplete
+                0x0000000000000bea                USART_DataRegEmpty
+                0x0000000000000c24                USART_NineBits_PutChar
+                0x0000000000000c38                USART_NineBits_GetChar
+ .text          0x0000000000000c4e       0x2c objdir/xmega_hal.o
+                0x0000000000000c4e                platform_init
+ .text          0x0000000000000c7a        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text          0x0000000000000c7a        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text          0x0000000000000c7a        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000c7a                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x0000000000000c78       0x42 objdir/./main.o
-                0x0000000000000c78                main
+ .text.startup  0x0000000000000c7a       0x42 objdir/./main.o
+                0x0000000000000c7a                main
  .text.libgcc.mul
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
  .text.libgcc.div
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
- .text.libgcc   0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
-                0x0000000000000cba                . = ALIGN (0x2)
+                0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000cbc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000cba        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
-                0x0000000000000cba                exit
-                0x0000000000000cba                _exit
+ .fini9         0x0000000000000cbc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                0x0000000000000cbc                exit
+                0x0000000000000cbc                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -418,11 +418,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000cba        0x4 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .fini0         0x0000000000000cbc        0x4 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000cbe                _etext = .
+                0x0000000000000cc0                _etext = .
 
-.data           0x0000000000802000      0x10e load address 0x0000000000000cbe
+.data           0x0000000000802000      0x10e load address 0x0000000000000cc0
                 0x0000000000802000                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000802000        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
@@ -471,8 +471,8 @@ END GROUP
                 0x00000000008021d0                msg1_copy
                 0x00000000008021e0                msg_copy
                 0x00000000008021f0                PROVIDE (__bss_end, .)
-                0x0000000000000cbe                __data_load_start = LOADADDR (.data)
-                0x0000000000000dcc                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000000000000cc0                __data_load_start = LOADADDR (.data)
+                0x0000000000000dce                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00000000008021f0        0x0
                 [!provide]                        PROVIDE (__noinit_start, .)
@@ -582,15 +582,15 @@ END GROUP
  .debug_abbrev  0x00000000000025d9      0x24a objdir/usart_driver.o
  .debug_abbrev  0x0000000000002823       0xc9 objdir/xmega_hal.o
 
-.debug_line     0x0000000000000000      0xc95
+.debug_line     0x0000000000000000      0xc8d
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000       0x1a /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
- .debug_line    0x000000000000001a      0x412 objdir/./main.o
- .debug_line    0x000000000000042c      0x385 objdir/simpleserial.o
- .debug_line    0x00000000000007b1        0x0 objdir/XMEGA_AES_driver.o
- .debug_line    0x00000000000007b1      0x15e objdir/uart.o
- .debug_line    0x000000000000090f      0x283 objdir/usart_driver.o
- .debug_line    0x0000000000000b92      0x103 objdir/xmega_hal.o
+ .debug_line    0x000000000000001a      0x40a objdir/./main.o
+ .debug_line    0x0000000000000424      0x385 objdir/simpleserial.o
+ .debug_line    0x00000000000007a9        0x0 objdir/XMEGA_AES_driver.o
+ .debug_line    0x00000000000007a9      0x15e objdir/uart.o
+ .debug_line    0x0000000000000907      0x283 objdir/usart_driver.o
+ .debug_line    0x0000000000000b8a      0x103 objdir/xmega_hal.o
 
 .debug_frame    0x0000000000000000      0x388
  *(.debug_frame)
@@ -616,12 +616,12 @@ END GROUP
  .debug_str     0x0000000000001e48      0x11c objdir/xmega_hal.o
                                         0x2bd (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x1148
+.debug_loc      0x0000000000000000     0x115a
  *(.debug_loc)
- .debug_loc     0x0000000000000000      0x631 objdir/./main.o
- .debug_loc     0x0000000000000631      0x6c1 objdir/simpleserial.o
- .debug_loc     0x0000000000000cf2       0xd0 objdir/uart.o
- .debug_loc     0x0000000000000dc2      0x386 objdir/usart_driver.o
+ .debug_loc     0x0000000000000000      0x643 objdir/./main.o
+ .debug_loc     0x0000000000000643      0x6c1 objdir/simpleserial.o
+ .debug_loc     0x0000000000000d04       0xd0 objdir/uart.o
+ .debug_loc     0x0000000000000dd4      0x386 objdir/usart_driver.o
 
 .debug_macinfo
  *(.debug_macinfo)
