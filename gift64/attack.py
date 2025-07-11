@@ -45,11 +45,11 @@ if __name__ == '__main__':
     
     
     for i in range(num_fauts):
-        cips_word.append(0);
-        fcips_word.append(0);
+        cips_word.append(0)
+        fcips_word.append(0)
         for j in range(16):
-            cips_word[i]=((cips[i][j]&0xF)<<(4*j))+cips_word[i];
-            fcips_word[i]=((fcips[i][j]&0xF)<<(4*j))+fcips_word[i];
+            cips_word[i]=((cips[i][j]&0xF)<<(4*j))+cips_word[i]
+            fcips_word[i]=((fcips[i][j]&0xF)<<(4*j))+fcips_word[i]
 
        
     attack(cips_word, fcips_word, key)
