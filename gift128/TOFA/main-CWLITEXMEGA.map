@@ -1,0 +1,854 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o (exit)
+/usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                              objdir/./main.o (__do_copy_data)
+/usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                              objdir/./main.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+msg_copy            0x20              objdir/./main.o
+key_copy            0x20              objdir/./main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x0000000000000000 0x0000000000022000 xr
+data             0x0000000000802000 0x0000000000002000 rw !x
+eeprom           0x0000000000810000 0x0000000000000800 rw !x
+fuse             0x0000000000820000 0x0000000000000006 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+user_signatures  0x0000000000850000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+LOAD objdir/./main.o
+LOAD objdir/simpleserial.o
+LOAD objdir/XMEGA_AES_driver.o
+LOAD objdir/uart.o
+LOAD objdir/usart_driver.o
+LOAD objdir/xmega_hal.o
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/libm.a
+START GROUP
+LOAD /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/libm.a
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/libc.a
+LOAD /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/libatxmega128d3.a
+END GROUP
+                [0x0000000000000000]                __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
+                [0x0000000000802000]                __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x802000
+                [0x0000000000022000]                __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x100000
+                [0x0000000000002000]                __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                [0x0000000000000800]                __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x0000000000000006]                __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x0000000000000400                __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x0000000000000400                __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x0000000000000400                __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x0000000000000000      0xc42
+ *(.vectors)
+ .vectors       0x0000000000000000      0x1c8 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+                0x0000000000000000                __vectors
+                0x0000000000000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x00000000000001c8                . = ALIGN (0x2)
+                0x00000000000001c8                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000000000001c8       0x18 linker stubs
+ *(.trampolines*)
+                0x00000000000001e0                __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem*)
+                0x00000000000001e0                . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000000000001e0                __ctors_start = .
+ *(.ctors)
+                0x00000000000001e0                __ctors_end = .
+                0x00000000000001e0                __dtors_start = .
+ *(.dtors)
+                0x00000000000001e0                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000000000001e0        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+                0x00000000000001e0                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000000000001e0       0x10 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000000000001f0       0x1a /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                0x00000000000001f0                __do_copy_data
+ .init4         0x000000000000020a       0x10 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x000000000000020a                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000000000021a        0x8 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ *(.init9)
+ *(.text)
+ .text          0x0000000000000222        0x4 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+                0x0000000000000222                __vector_38
+                0x0000000000000222                __vector_104
+                0x0000000000000222                __vector_22
+                0x0000000000000222                __vector_63
+                0x0000000000000222                __vector_28
+                0x0000000000000222                __vector_67
+                0x0000000000000222                __vector_1
+                0x0000000000000222                __vector_32
+                0x0000000000000222                __vector_75
+                0x0000000000000222                __vector_71
+                0x0000000000000222                __vector_91
+                0x0000000000000222                __vector_34
+                0x0000000000000222                __vector_62
+                0x0000000000000222                __vector_77
+                0x0000000000000222                __vector_102
+                0x0000000000000222                __vector_24
+                0x0000000000000222                __vector_12
+                0x0000000000000222                __vector_55
+                0x0000000000000222                __vector_69
+                0x0000000000000222                __vector_81
+                0x0000000000000222                __vector_90
+                0x0000000000000222                __vector_46
+                0x0000000000000222                __bad_interrupt
+                0x0000000000000222                __vector_72
+                0x0000000000000222                __vector_6
+                0x0000000000000222                __vector_110
+                0x0000000000000222                __vector_31
+                0x0000000000000222                __vector_92
+                0x0000000000000222                __vector_35
+                0x0000000000000222                __vector_78
+                0x0000000000000222                __vector_74
+                0x0000000000000222                __vector_39
+                0x0000000000000222                __vector_107
+                0x0000000000000222                __vector_3
+                0x0000000000000222                __vector_105
+                0x0000000000000222                __vector_98
+                0x0000000000000222                __vector_23
+                0x0000000000000222                __vector_68
+                0x0000000000000222                __vector_30
+                0x0000000000000222                __vector_73
+                0x0000000000000222                __vector_45
+                0x0000000000000222                __vector_25
+                0x0000000000000222                __vector_93
+                0x0000000000000222                __vector_61
+                0x0000000000000222                __vector_11
+                0x0000000000000222                __vector_54
+                0x0000000000000222                __vector_99
+                0x0000000000000222                __vector_13
+                0x0000000000000222                __vector_17
+                0x0000000000000222                __vector_19
+                0x0000000000000222                __vector_56
+                0x0000000000000222                __vector_7
+                0x0000000000000222                __vector_49
+                0x0000000000000222                __vector_41
+                0x0000000000000222                __vector_86
+                0x0000000000000222                __vector_100
+                0x0000000000000222                __vector_101
+                0x0000000000000222                __vector_64
+                0x0000000000000222                __vector_88
+                0x0000000000000222                __vector_109
+                0x0000000000000222                __vector_43
+                0x0000000000000222                __vector_27
+                0x0000000000000222                __vector_5
+                0x0000000000000222                __vector_113
+                0x0000000000000222                __vector_33
+                0x0000000000000222                __vector_76
+                0x0000000000000222                __vector_47
+                0x0000000000000222                __vector_52
+                0x0000000000000222                __vector_37
+                0x0000000000000222                __vector_95
+                0x0000000000000222                __vector_103
+                0x0000000000000222                __vector_96
+                0x0000000000000222                __vector_89
+                0x0000000000000222                __vector_108
+                0x0000000000000222                __vector_4
+                0x0000000000000222                __vector_44
+                0x0000000000000222                __vector_82
+                0x0000000000000222                __vector_106
+                0x0000000000000222                __vector_51
+                0x0000000000000222                __vector_9
+                0x0000000000000222                __vector_2
+                0x0000000000000222                __vector_21
+                0x0000000000000222                __vector_15
+                0x0000000000000222                __vector_66
+                0x0000000000000222                __vector_36
+                0x0000000000000222                __vector_79
+                0x0000000000000222                __vector_58
+                0x0000000000000222                __vector_70
+                0x0000000000000222                __vector_83
+                0x0000000000000222                __vector_29
+                0x0000000000000222                __vector_60
+                0x0000000000000222                __vector_40
+                0x0000000000000222                __vector_85
+                0x0000000000000222                __vector_94
+                0x0000000000000222                __vector_8
+                0x0000000000000222                __vector_26
+                0x0000000000000222                __vector_48
+                0x0000000000000222                __vector_112
+                0x0000000000000222                __vector_111
+                0x0000000000000222                __vector_80
+                0x0000000000000222                __vector_14
+                0x0000000000000222                __vector_84
+                0x0000000000000222                __vector_57
+                0x0000000000000222                __vector_53
+                0x0000000000000222                __vector_10
+                0x0000000000000222                __vector_50
+                0x0000000000000222                __vector_16
+                0x0000000000000222                __vector_59
+                0x0000000000000222                __vector_18
+                0x0000000000000222                __vector_97
+                0x0000000000000222                __vector_20
+                0x0000000000000222                __vector_42
+                0x0000000000000222                __vector_87
+                0x0000000000000222                __vector_65
+ .text          0x0000000000000226      0x44c objdir/./main.o
+                0x0000000000000226                get_key
+                0x000000000000022a                reset
+                0x000000000000022e                to_bits
+                0x000000000000026e                from_bits
+                0x00000000000002aa                SBox
+                0x00000000000002ca                genPerm
+                0x0000000000000316                PLayer
+                0x0000000000000392                Key_update
+                0x0000000000000476                addRk
+                0x00000000000004ea                addRc
+                0x000000000000058a                updateConst
+                0x00000000000005a4                enc
+                0x0000000000000626                get_pt
+ .text          0x0000000000000672      0x3bc objdir/simpleserial.o
+                0x0000000000000672                check_version
+                0x0000000000000676                ss_crc
+                0x00000000000006a0                hex_decode
+                0x0000000000000726                simpleserial_addcmd_flags
+                0x000000000000076c                simpleserial_addcmd
+                0x0000000000000772                simpleserial_init
+                0x000000000000079c                simpleserial_put
+                0x00000000000007fa                ss_num_commands
+                0x0000000000000822                ss_get_commands
+                0x00000000000008a8                simpleserial_get
+ .text          0x0000000000000a2e        0x0 objdir/XMEGA_AES_driver.o
+ .text          0x0000000000000a2e       0x88 objdir/uart.o
+                0x0000000000000a2e                init_uart0
+                0x0000000000000a56                input_ch_w_timeout_0
+                0x0000000000000a9a                input_ch_0
+                0x0000000000000aa8                output_ch_0
+ .text          0x0000000000000ab6      0x11a objdir/usart_driver.o
+                0x0000000000000ab6                USART_InterruptDriver_Initialize
+                0x0000000000000ac8                USART_InterruptDriver_DreInterruptLevel_Set
+                0x0000000000000ace                USART_TXBuffer_FreeSpace
+                0x0000000000000ae2                USART_TXBuffer_PutByte
+                0x0000000000000b1a                USART_RXBufferData_Available
+                0x0000000000000b2a                USART_RXBuffer_GetByte
+                0x0000000000000b42                USART_RXComplete
+                0x0000000000000b6c                USART_DataRegEmpty
+                0x0000000000000ba6                USART_NineBits_PutChar
+                0x0000000000000bba                USART_NineBits_GetChar
+ .text          0x0000000000000bd0       0x2c objdir/xmega_hal.o
+                0x0000000000000bd0                platform_init
+ .text          0x0000000000000bfc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text          0x0000000000000bfc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text          0x0000000000000bfc        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000bfc                . = ALIGN (0x2)
+ *(.text.*)
+ .text.startup  0x0000000000000bfc       0x42 objdir/./main.o
+                0x0000000000000bfc                main
+ .text.libgcc.mul
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000000000000c3e                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000000000000c3e        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                0x0000000000000c3e                exit
+                0x0000000000000c3e                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000000000000c3e        0x4 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000000000000c42                _etext = .
+
+.data           0x0000000000802000       0x50 load address 0x0000000000000c42
+                0x0000000000802000                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x0000000000802000        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .data          0x0000000000802000       0x20 objdir/./main.o
+                0x0000000000802000                key
+ .data          0x0000000000802020        0x0 objdir/simpleserial.o
+ .data          0x0000000000802020        0x0 objdir/XMEGA_AES_driver.o
+ .data          0x0000000000802020        0x0 objdir/uart.o
+ .data          0x0000000000802020        0x0 objdir/usart_driver.o
+ .data          0x0000000000802020        0x0 objdir/xmega_hal.o
+ .data          0x0000000000802020        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .data          0x0000000000802020        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .data          0x0000000000802020        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ .rodata        0x0000000000802020       0x20 objdir/./main.o
+                0x0000000000802020                invsbox
+                0x0000000000802030                sbox
+ .rodata        0x0000000000802040       0x10 objdir/simpleserial.o
+ *(.rodata*)
+ *(.gnu.linkonce.r*)
+                0x0000000000802050                . = ALIGN (0x2)
+                0x0000000000802050                _edata = .
+                0x0000000000802050                PROVIDE (__data_end, .)
+
+.bss            0x0000000000802050      0x102
+                0x0000000000802050                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0000000000802050        0x0 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .bss           0x0000000000802050        0x0 objdir/./main.o
+ .bss           0x0000000000802050       0xc2 objdir/simpleserial.o
+ .bss           0x0000000000802112        0x0 objdir/XMEGA_AES_driver.o
+ .bss           0x0000000000802112        0x0 objdir/uart.o
+ .bss           0x0000000000802112        0x0 objdir/usart_driver.o
+ .bss           0x0000000000802112        0x0 objdir/xmega_hal.o
+ .bss           0x0000000000802112        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+ .bss           0x0000000000802112        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+ .bss           0x0000000000802112        0x0 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0000000000802112       0x40 objdir/./main.o
+                0x0000000000802112                msg_copy
+                0x0000000000802132                key_copy
+                0x0000000000802152                PROVIDE (__bss_end, .)
+                0x0000000000000c42                __data_load_start = LOADADDR (.data)
+                0x0000000000000c92                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0000000000802152        0x0
+                [!provide]                        PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                [!provide]                        PROVIDE (__noinit_end, .)
+                0x0000000000802152                _end = .
+                [!provide]                        PROVIDE (__heap_start, .)
+
+.eeprom         0x0000000000810000        0x0
+ *(.eeprom*)
+                0x0000000000810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x11
+ *(.comment)
+ .comment       0x0000000000000000       0x11 objdir/./main.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000011       0x12 objdir/simpleserial.o
+ .comment       0x0000000000000011       0x12 objdir/XMEGA_AES_driver.o
+ .comment       0x0000000000000011       0x12 objdir/uart.o
+ .comment       0x0000000000000011       0x12 objdir/usart_driver.o
+ .comment       0x0000000000000011       0x12 objdir/xmega_hal.o
+
+.note.gnu.avr.deviceinfo
+                0x0000000000000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x0000000000000000       0x40 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000       0xa8
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x28 objdir/./main.o
+ .debug_aranges
+                0x0000000000000028       0x20 objdir/simpleserial.o
+ .debug_aranges
+                0x0000000000000048       0x20 objdir/uart.o
+ .debug_aranges
+                0x0000000000000068       0x20 objdir/usart_driver.o
+ .debug_aranges
+                0x0000000000000088       0x20 objdir/xmega_hal.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x3f82
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000     0x2168 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .debug_info    0x0000000000002168      0xad1 objdir/./main.o
+ .debug_info    0x0000000000002c39      0x776 objdir/simpleserial.o
+ .debug_info    0x00000000000033af      0x3e5 objdir/uart.o
+ .debug_info    0x0000000000003794      0x5d0 objdir/usart_driver.o
+ .debug_info    0x0000000000003d64      0x21e objdir/xmega_hal.o
+
+.debug_abbrev   0x0000000000000000     0x2922
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000     0x1fa2 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .debug_abbrev  0x0000000000001fa2      0x2a6 objdir/./main.o
+ .debug_abbrev  0x0000000000002248      0x272 objdir/simpleserial.o
+ .debug_abbrev  0x00000000000024ba      0x155 objdir/uart.o
+ .debug_abbrev  0x000000000000260f      0x24a objdir/usart_driver.o
+ .debug_abbrev  0x0000000000002859       0xc9 objdir/xmega_hal.o
+
+.debug_line     0x0000000000000000      0xc8c
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x0000000000000000       0x1a /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .debug_line    0x000000000000001a      0x409 objdir/./main.o
+ .debug_line    0x0000000000000423      0x385 objdir/simpleserial.o
+ .debug_line    0x00000000000007a8        0x0 objdir/XMEGA_AES_driver.o
+ .debug_line    0x00000000000007a8      0x15e objdir/uart.o
+ .debug_line    0x0000000000000906      0x283 objdir/usart_driver.o
+ .debug_line    0x0000000000000b89      0x103 objdir/xmega_hal.o
+
+.debug_frame    0x0000000000000000      0x474
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000      0x1d0 objdir/./main.o
+ .debug_frame   0x00000000000001d0      0x144 objdir/simpleserial.o
+ .debug_frame   0x0000000000000314       0x68 objdir/uart.o
+ .debug_frame   0x000000000000037c       0xd4 objdir/usart_driver.o
+ .debug_frame   0x0000000000000450       0x24 objdir/xmega_hal.o
+
+.debug_str      0x0000000000000000     0x1f62
+ *(.debug_str)
+ .debug_str     0x0000000000000000     0x1641 /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .debug_str     0x0000000000001641      0x331 objdir/./main.o
+                                        0x37a (size before relaxing)
+ .debug_str     0x0000000000001972       0xf4 objdir/simpleserial.o
+                                        0x2ce (size before relaxing)
+ .debug_str     0x0000000000001a66       0x2a objdir/XMEGA_AES_driver.o
+                                         0xea (size before relaxing)
+ .debug_str     0x0000000000001a90      0x151 objdir/uart.o
+                                        0x3c5 (size before relaxing)
+ .debug_str     0x0000000000001be1      0x265 objdir/usart_driver.o
+                                        0x47a (size before relaxing)
+ .debug_str     0x0000000000001e46      0x11c objdir/xmega_hal.o
+                                        0x2be (size before relaxing)
+
+.debug_loc      0x0000000000000000     0x131b
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000      0x804 objdir/./main.o
+ .debug_loc     0x0000000000000804      0x6c1 objdir/simpleserial.o
+ .debug_loc     0x0000000000000ec5       0xd0 objdir/uart.o
+ .debug_loc     0x0000000000000f95      0x386 objdir/usart_driver.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000       0x98
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000       0x38 objdir/./main.o
+ .debug_ranges  0x0000000000000038       0x60 objdir/simpleserial.o
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(main-CWLITEXMEGA.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+Key_update                                        objdir/./main.o
+PLayer                                            objdir/./main.o
+SBox                                              objdir/./main.o
+USART_DataRegEmpty                                objdir/usart_driver.o
+USART_InterruptDriver_DreInterruptLevel_Set       objdir/usart_driver.o
+USART_InterruptDriver_Initialize                  objdir/usart_driver.o
+USART_NineBits_GetChar                            objdir/usart_driver.o
+USART_NineBits_PutChar                            objdir/usart_driver.o
+USART_RXBufferData_Available                      objdir/usart_driver.o
+USART_RXBuffer_GetByte                            objdir/usart_driver.o
+USART_RXComplete                                  objdir/usart_driver.o
+USART_TXBuffer_FreeSpace                          objdir/usart_driver.o
+USART_TXBuffer_PutByte                            objdir/usart_driver.o
+__DATA_REGION_LENGTH__                            /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__DATA_REGION_ORIGIN__                            /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__EEPROM_REGION_LENGTH__                          /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__FUSE_REGION_LENGTH__                            /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__TEXT_REGION_LENGTH__                            /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__TEXT_REGION_ORIGIN__                            /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__bad_interrupt                                   /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__bss_end                                         /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+__data_end                                        /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+__data_load_start                                 /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+__data_start                                      /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+__do_clear_bss                                    /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_clear_bss.o)
+                                                  objdir/simpleserial.o
+                                                  objdir/./main.o
+__do_copy_data                                    /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_copy_data.o)
+                                                  objdir/simpleserial.o
+                                                  objdir/./main.o
+__heap_end                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__init                                            /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__stack                                           /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_1                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_10                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_100                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_101                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_102                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_103                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_104                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_105                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_106                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_107                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_108                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_109                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_11                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_110                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_111                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_112                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_113                                      /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_12                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_13                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_14                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_15                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_16                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_17                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_18                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_19                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_2                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_20                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_21                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_22                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_23                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_24                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_25                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_26                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_27                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_28                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_29                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_3                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_30                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_31                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_32                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_33                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_34                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_35                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_36                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_37                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_38                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_39                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_4                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_40                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_41                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_42                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_43                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_44                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_45                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_46                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_47                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_48                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_49                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_5                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_50                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_51                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_52                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_53                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_54                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_55                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_56                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_57                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_58                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_59                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_6                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_60                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_61                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_62                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_63                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_64                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_65                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_66                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_67                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_68                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_69                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_7                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_70                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_71                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_72                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_73                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_74                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_75                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_76                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_77                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_78                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_79                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_8                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_80                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_81                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_82                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_83                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_84                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_85                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_86                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_87                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_88                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_89                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_9                                        /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_90                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_91                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_92                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_93                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_94                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_95                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_96                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_97                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_98                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_99                                       /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_default                                  /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vectors                                         /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+_exit                                             /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+addRc                                             objdir/./main.o
+addRk                                             objdir/./main.o
+check_version                                     objdir/simpleserial.o
+enc                                               objdir/./main.o
+exit                                              /usr/lib/gcc/avr/7.3.0/avrxmega6/libgcc.a(_exit.o)
+                                                  /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+from_bits                                         objdir/./main.o
+genPerm                                           objdir/./main.o
+get_key                                           objdir/./main.o
+get_pt                                            objdir/./main.o
+hex_decode                                        objdir/simpleserial.o
+init_uart0                                        objdir/uart.o
+                                                  objdir/./main.o
+input_ch_0                                        objdir/uart.o
+                                                  objdir/simpleserial.o
+input_ch_w_timeout_0                              objdir/uart.o
+invsbox                                           objdir/./main.o
+key                                               objdir/./main.o
+key_copy                                          objdir/./main.o
+main                                              objdir/./main.o
+                                                  /usr/lib/gcc/avr/7.3.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+msg_copy                                          objdir/./main.o
+output_ch_0                                       objdir/uart.o
+                                                  objdir/simpleserial.o
+platform_init                                     objdir/xmega_hal.o
+                                                  objdir/./main.o
+reset                                             objdir/./main.o
+sbox                                              objdir/./main.o
+simpleserial_addcmd                               objdir/simpleserial.o
+                                                  objdir/./main.o
+simpleserial_addcmd_flags                         objdir/simpleserial.o
+simpleserial_get                                  objdir/simpleserial.o
+                                                  objdir/./main.o
+simpleserial_init                                 objdir/simpleserial.o
+                                                  objdir/./main.o
+simpleserial_put                                  objdir/simpleserial.o
+                                                  objdir/./main.o
+ss_crc                                            objdir/simpleserial.o
+ss_get_commands                                   objdir/simpleserial.o
+ss_num_commands                                   objdir/simpleserial.o
+to_bits                                           objdir/./main.o
+updateConst                                       objdir/./main.o
