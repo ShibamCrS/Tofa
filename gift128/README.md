@@ -24,3 +24,7 @@ Key-Recovery: The Jupyter Notebook- TOFA_FA.ipynb is called via Python script- a
 We provide a duplication-based countermeasure implementation of GIFT128 for the last five rounds required to mitigate TOFA. It is present in the folder- Countermeasure_TOFA. A test of this countermeasure is shown in the Jupyter Notebook file- TOFA_FA_Countermeasure.ipynb. Any fault induced here results in all 0 ciphertext results. It prevents the attacker from exploiting faults on GIFT128.
 
 
+## File Structure
+
+- `attack.cpp`: Main driver program for the key recovery attack.
+- `gift128.h`: Implementation of the GIFT-128 cipher used in the attack.
