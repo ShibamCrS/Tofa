@@ -42,7 +42,7 @@ Tofa/
 │   │   └── makefile                # To perform key recovery attack practically on baksheesh
 │   │   
 │   ├── attack.cpp                  # Simulation code for key recovery attack, called from Makefile
-│   └── Makefile                    # Simulate the key recovery attack on baksheesh
+│   └── Makefile                    # To simulate the key recovery attack on baksheesh
 │
 ├── gift64                          # 
 │   ├── Setup_Scripts               # Folder with toolchain's requirements of gift64
