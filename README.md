@@ -65,7 +65,7 @@ cd cipher_name
 make
 ./byte_fault
 ```
-To change number of Faults, set `EXP` in `attack.cpp` (e.g., for 16 faults, `int EXP = 16`)
+To change number of Faults, set `EXP` in `attack.cpp` (e.g., for 16 faults, `int EXP = 16;`)
 
 ## Attack Realization Using ChipWhisperer Lite
 
