@@ -21,7 +21,7 @@ This repository provides supplementary material for our work on the fault analys
 
 ## Software Simulation of The Attacks
 The simulation code is given in Gift128/64 and BAKSHEESH are given in respective directories.
-To run the simulation, do the following:
+To run the simulation, do the following fnvfnvfn:
 ```bash
 cd cipher_name
 make
