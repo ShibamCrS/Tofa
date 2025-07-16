@@ -113,7 +113,7 @@ The reported times represent the average execution time over 50 experiments, eac
 |             |   16     |  63 milliseconds  |       256         |
 |             |   15     |  75 milliseconds  |       512         |
 
-# COUNTERMEASURE
+# Countermeasure
 
 We provide a duplication-based countermeasure implementation of GIFT128 for the last five rounds required to mitigate TOFA. It is present in the folder- `Tofa/gift128/Countermeasure_TOFA/`. A test of this countermeasure is shown in the Jupyter Notebook file- `TOFA_FA_Countermeasure.ipynb`. Any fault induced here results in all 0 ciphertext results. It prevents the attacker from exploiting faults on GIFT128.
 
