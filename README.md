@@ -38,56 +38,28 @@ Tofa/
 ├── README.md                       # Project documentation
 ├── baksheesh
 │   ├── TOFA
-│   │   ├── Setup_Scripts           # Related to toolchain's requirements
-│   │   ├── dependencies            # 
-│   │   ├── main.c                  # Main file to run key recovery attack on hardware. It is called from makefile
-│   │   ├── main_baksheesh.c        # Contains implementation of baksheesh cipher
-│   │   ├── baksheesh.h             # Header file of baksheesh cipher, called from main_baksheesh.c
-│   │   └── makefile                # To run key recovery attack practically on baksheesh
+│   │   ├── Setup_Scripts           # Folder related to toolchain's requirements of baksheesh
+│   │   └── makefile                # To perform key recovery attack practically on baksheesh
 │   │   
-│   ├── attack.cpp                  # Simulation code of key recovery attack
-│   ├── baksheesh.h                 # Header file of baksheesh cipher for simulation
-│   ├── byte_fault_model.cpp        # Another program to run key recovery attack
-│   ├── Makefile                    # To run simulation of the key recovery attack on baksheesh
-│   └── utility.h                   # 
+│   ├── attack.cpp                  # Simulation code for key recovery attack, called from Makefile
+│   └── Makefile                    # Simulate the key recovery attack on baksheesh
 │
 ├── gift64                          # 
-│   ├── Setup_Scripts               # Related to toolchain's requirements
-│   ├── TOFA                        # 
-│   │   ├── dependencies            # 
-│   │   ├── main.c                  # Main file to run key recovery attack on hardware. It is called from makefile 
-│   │   ├── main-CWLITEXMEGA.hex    #
-│   │   ├── main_gift64.cpp         # Contains implementation of gift64 cipher
-│   │   └── makefile                # To run simulation of the key recovery attack on gift64
+│   ├── Setup_Scripts               # Folder with toolchain's requirements of gift64
+│   ├── TOFA                        # For toolchain's requirements of gift64
+│   │   └── makefile                # To run key recovery attack on hardware
 │   │   
-│   ├── Makefile                    # To run simulation of the key recovery attack on gift64
-│   ├── attack.cpp                  # Simulation code of key recovery attack
-│   ├── attack.py                   # 
-│   ├── byte_fault_model.cpp        # Another program to simulate the key recovery attack
-│   ├── gift64.h                    # Header file for gift64 oracle
-│   ├── utility.h                   # 
-│   └── setup.py                    # 
+│   ├── attack.cpp                  # Simulation code for key recovery attack of gift64
+│   └── Makefile                    # To run simulation of the key recovery attack on gift64
 │
-├── gift128                         # 
-│   ├── Setup_Scripts               # Related to toolchain's requirements
-│   ├── TOFA                        # 
-│   │   ├── dependencies            # 
-│   │   ├── main.c                  # Main file to run key recovery attack on hardware. It is called from makefile   
-│   │   ├── main-CWLITEXMEGA.hex    #
-│   │   ├── main_gift128.cpp        # Implementation of gift128 cipher on hardware
-│   │   └── makefile                #
-│   │   
-│   ├── countermeasure_TOFA         # Duplication-based countermeasure implementation of GIFT128 for the last five rounds
-│   ├── Makefile                    # 
-│   ├── attack.cpp                  # 
-│   ├── attack.py                   # 
-│   ├── byte_fault_model.cpp        # 
-│   ├── gift128.h                   # 
-│   ├── utility.h                   # 
-│   └── setup.py                    # 
-│
-├── gift64_lib_uint8                # 
-└── oracles                         # Folder containing oracles of all ciphers
+└── gift128
+    ├── Setup_Scripts               # Related to toolchain's requirements
+    ├── TOFA
+    │   └── makefile                # To perform key recovery attack practically on gift128
+    │   
+    ├── countermeasure_TOFA         # Duplication-based countermeasure implementation of gift128 for last five rounds
+    ├── Makefile                    # To run simulation of the key recovery attack on gift128
+    └── attack.cpp                  # Simulation code for key recovery attack of gift128
 ```
 
 ## Software Simulation of The Attacks
