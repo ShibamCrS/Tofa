@@ -57,7 +57,7 @@ Tofa/
 └── oracles                         # 
 ```
 
-# Software Simulation of The Attacks
+## Software Simulation of The Attacks
 The simulation code is given in gift128/64 and baksheesh are given in respective directories.
 To run the simulation, do the following:
 ```bash
@@ -67,13 +67,13 @@ make
 ```
 To change number of Faults, set `EXP` in `attack.cpp` (e.g., for 16 faults, `int EXP = 16;`)
 
-# Attack Realization Using ChipWhisperer Lite
+## Attack Realization Using ChipWhisperer Lite
 
 We use the ChipWhisperer-Lite  CW1173  evaluation board, as shown below. It has XMEGA and ARM targets as shown in `./setup.jpeg`.
 
  <!-- <div  align="center"><img  src="./setup.jpeg"  width="400"  height="200"></div> -->
 
-## How To Induce The Faults And Perform Key Recovery?
+### How To Induce The Faults And Perform Key Recovery?
 The following two commands are sufficient to build the necessary dependencies, induce faults, and perform final key recovery in the `Tofa/gift<128/64>` folder.
 
 > $ python setup.py build_ext --inplace
@@ -113,7 +113,7 @@ The reported times represent the average execution time over 50 experiments, eac
 |             |   16     |  63 milliseconds  |       256         |
 |             |   15     |  75 milliseconds  |       512         |
 
-# Countermeasure
+### Countermeasure
 
 We provide a duplication-based countermeasure implementation of GIFT128 for the last five rounds required to mitigate TOFA. It is present in the folder- `Tofa/gift128/Countermeasure_TOFA/`. A test of this countermeasure is shown in the Jupyter Notebook file- `TOFA_FA_Countermeasure.ipynb`. Any fault induced here results in all 0 ciphertext results. It prevents the attacker from exploiting faults on GIFT128.
 
