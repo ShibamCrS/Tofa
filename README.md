@@ -31,35 +31,40 @@ The following tools need to be installed to perform the experiments:
    We use the [ChipWhisperer open-source toolchain](https://github.com/newaetech/chipwhisperer).
    It must be installed for [Attack Realization Using ChipWhisperer Lite](#attack-realization-using-chipwhisperer-lite) used in this work.
 
-## Folder Structure
-A high-level summary of the folder structure containing necessary files is given in the following.
+## Directory Structure  
+
+A high-level overview of the directory layout and the role of each component is provided below.
+
+The file `attack.cpp` contains the main driver code for the key-recovery attack.
+This is used both for the actual attack using ChipWhisperer Lite and for software simulation (see the `Makefile` in each cipher's directory).
+
 ```
 Tofa/
-├── README.md                       # Project documentation
-├── baksheesh
-│   ├── TOFA
-│   │   ├── Setup_Scripts           # Folder related to toolchain's requirements of baksheesh
-│   │   └── makefile                # To perform key recovery attack practically on baksheesh
-│   │   
-│   ├── attack.cpp                  # Simulation code for key recovery attack, called from Makefile
-│   └── Makefile                    # To simulate the key recovery attack on baksheesh
+├── README.md               # Project documentation and usage guide
+├── gift128
+│    ├── Setup_Scripts      # Toolchain setup scripts for GIFT-128
+│    ├── TOFA
+│    │   └── makefile       # Executes the practical key-recovery attack on GIFT-128
+│    │
+│    ├── Makefile              # Simulates the key-recovery attack on GIFT-128
+│    ├── attack.cpp            # Driver code for GIFT-128 key-recovery attack
+│    └── countermeasure_TOFA   # Duplication-based countermeasure for the last 5 rounds of GIFT-128
 │
-├── gift64                          # 
-│   ├── Setup_Scripts               # Folder with toolchain's requirements of gift64
-│   ├── TOFA                        # For toolchain's requirements of gift64
-│   │   └── makefile                # To run key recovery attack on hardware
-│   │   
-│   ├── attack.cpp                  # Simulation code for key recovery attack of gift64
-│   └── Makefile                    # To run simulation of the key recovery attack on gift64
+├── gift64
+│    ├── Setup_Scripts         # Toolchain setup scripts for GIFT-64
+│    ├── TOFA
+│    │   └── makefile          # Runs the key-recovery attack on GIFT-64 hardware
+│    │
+│    ├── attack.cpp            # Driver code for GIFT-64 key-recovery attack
+│    └── Makefile              # Simulates the key-recovery attack on GIFT-64
 │
-└── gift128
-    ├── Setup_Scripts               # Related to toolchain's requirements
-    ├── TOFA
-    │   └── makefile                # To perform key recovery attack practically on gift128
-    │   
-    ├── countermeasure_TOFA         # Duplication-based countermeasure implementation of gift128 for last five rounds
-    ├── Makefile                    # To run simulation of the key recovery attack on gift128
-    └── attack.cpp                  # Simulation code for key recovery attack of gift128
+└── baksheesh
+     ├── TOFA
+     │    ├── Setup_Scripts         # Toolchain setup scripts for Baksheesh
+     │    └── makefile              # Executes the practical key-recovery attack on Baksheesh
+     │
+     ├── attack.cpp              # Driver code for Baksheesh key-recovery attack
+     └── Makefile                # Simulates the key-recovery attack on Baksheesh
 ```
 
 ## Software Simulation of The Attacks
