@@ -35,7 +35,7 @@ The following tools need to be installed to perform the experiments:
 
 A high-level overview of the directory layout and the role of each component is provided below.
 
-The file `attack.cpp` contains the main driver code for the key-recovery attack.
+The file `attack.cpp` (in each cipher's directory) contains the main driver code for the key-recovery attack.
 This is used both for the actual attack using ChipWhisperer Lite and for software simulation (see the `Makefile` in each cipher's directory).
 
 ```
