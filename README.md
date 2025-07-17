@@ -40,31 +40,31 @@ This is used both for the actual attack using ChipWhisperer Lite and for softwar
 
 ```
 Tofa/
-├── README.md               # Project documentation and usage guide
+├── README.md                   # Project documentation and usage guide
 ├── gift128
-│    ├── Setup_Scripts      # Toolchain setup scripts for GIFT-128
+│    ├── Setup_Scripts          # Toolchain setup scripts for GIFT-128
 │    ├── TOFA
-│    │   └── makefile       # Executes the practical key-recovery attack on GIFT-128
+│    │   └── makefile           # Executes the practical key-recovery attack on GIFT-128
 │    │
-│    ├── Makefile              # Simulates the key-recovery attack on GIFT-128
-│    ├── attack.cpp            # Driver code for GIFT-128 key-recovery attack
-│    └── countermeasure_TOFA   # Duplication-based countermeasure for the last 5 rounds of GIFT-128
+│    ├── Makefile               # Simulates the key-recovery attack on GIFT-128
+│    ├── attack.cpp             # Driver code for GIFT-128 key-recovery attack
+│    └── countermeasure_TOFA    # Duplication-based countermeasure for the last 5 rounds of GIFT-128
 │
 ├── gift64
-│    ├── Setup_Scripts         # Toolchain setup scripts for GIFT-64
+│    ├── Setup_Scripts          # Toolchain setup scripts for GIFT-64
 │    ├── TOFA
-│    │   └── makefile          # Runs the key-recovery attack on GIFT-64 hardware
+│    │   └── makefile           # Runs the key-recovery attack on GIFT-64 hardware
 │    │
-│    ├── attack.cpp            # Driver code for GIFT-64 key-recovery attack
-│    └── Makefile              # Simulates the key-recovery attack on GIFT-64
+│    ├── attack.cpp             # Driver code for GIFT-64 key-recovery attack
+│    └── Makefile               # Simulates the key-recovery attack on GIFT-64
 │
 └── baksheesh
      ├── TOFA
-     │    ├── Setup_Scripts         # Toolchain setup scripts for Baksheesh
-     │    └── makefile              # Executes the practical key-recovery attack on Baksheesh
+     │    ├── Setup_Scripts     # Toolchain setup scripts for Baksheesh
+     │    └── makefile          # Executes the practical key-recovery attack on Baksheesh
      │
-     ├── attack.cpp              # Driver code for Baksheesh key-recovery attack
-     └── Makefile                # Simulates the key-recovery attack on Baksheesh
+     ├── attack.cpp             # Driver code for Baksheesh key-recovery attack
+     └── Makefile               # Simulates the key-recovery attack on Baksheesh
 ```
 
 ## Software Simulation of The Attacks
